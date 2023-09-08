@@ -25,12 +25,12 @@ To answer the question "How old is foo" using the given knowledge graph, you can
 
 PREFIX mco: <http://kgrl.org/mco#>
 
-```sparql
+\`\`\`sparql
 SELECT ?age
 WHERE {
   mco:foo mco:age ?age .
 }
-```
+\`\`\`
 
 This query selects the `?age` value for `mco:foo` using the `mco:age` property. By executing this query, you will get the age of foo as the result.
 ```
@@ -38,14 +38,14 @@ This query selects the `?age` value for `mco:foo` using the `mco:age` property. 
 ```sh
 The SPARQL query to answer the question "How many friends does foo have?" using the given graph is as follows:
 
-```
+\`\`\`
 PREFIX mco: <http://kgrl.org/mco#>
 
 SELECT (COUNT(?friend) AS ?numFriends)
 WHERE {
   mco:foo mco:friend ?friend .
 }
-```
+\`\`\`
 
 This query uses the `COUNT` function to count the number of `friend` relationships for the resource `mco:foo`. The result variable is named `numFriends`.
 ```
