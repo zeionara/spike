@@ -47,10 +47,11 @@ WHERE {
 }
 ```
 
+
 This query uses the `COUNT` function to count the number of `friend` relationships for the resource `mco:foo`. The result variable is named `numFriends`.
 ````
 
-### Open ai response example
+## Open ai response example
 
 Open ai server responds with the following object:
 
@@ -77,3 +78,54 @@ Open ai server responds with the following object:
   }
 }
 ```
+
+## Orkg examples
+
+The tool can be used to answer questions about the [orkg]() knowledge graph. There are a couple of examples:
+
+### Count number of papers
+
+#### Input:
+
+```sh
+python -m spike ask 'How many papers are there'
+```
+
+#### Output:
+
+````sh
+The SPARQL query to answer the question "How many papers are there?" using the given knowledge graph would be:
+
+```
+SELECT (COUNT(?paper) AS ?count)
+WHERE {
+  ?paper a c:Paper.
+}
+```
+
+This query selects all instances (`?paper`) that have the type `c:Paper`, and then counts the number of distinct instances using the `COUNT()` function. The result is returned as `?count`.
+````
+
+### Count number of research approaches
+
+#### Input:
+
+```sh
+python -m spike ask 'How many research approaches are there'
+```
+
+#### Output:
+
+````sh
+The SPARQL query to answer the question "How many research approaches are there" using the given graph would be:
+
+```
+PREFIX r: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX c: <http://orkg.org/orkg/class/>
+SELECT (COUNT(?researchApproach) AS ?countResearchApproaches) WHERE {
+  ?researchApproach r:type c:C65001 .
+}
+```
+
+This query selects all instances (`?researchApproach`) that have the type `c:C65001` (which represents the "Research approach" class) and counts the number of occurrences using the `COUNT` function. The result is assigned to the variable `?countResearchApproaches`.
+````

@@ -31,8 +31,9 @@ where {
 
 PREFIXES = {
     'http://www.w3.org/2002/07/owl': 'w',
-    'http://www.w3.org/2000/01/rdf-schema': 'r',
-    'http://orkg.org/orkg/class': 'c'
+    # 'http://www.w3.org/2000/01/rdf-schema': 'r',
+    'http://orkg.org/orkg/class': 'c',
+    'http://www.w3.org/1999/02/22-rdf-syntax-ns': 'r'
 }
 
 TRAILERS = {
@@ -66,7 +67,7 @@ class OrkgContext:
             class_ = cut_prefix(binding['class']['value'], PREFIXES)
             label = binding['label']['value']
 
-            context.append(f'{class_} r:label "{label}".')
+            context.append(f'{class_} r:label "{label}". _ r:type {class_}.')
 
         self.context = context
 
