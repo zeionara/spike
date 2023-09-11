@@ -2,6 +2,8 @@ from click import group, argument
 
 from openai import ChatCompletion as cc
 
+from .OrkgContext import OrkgContext
+
 
 @group()
 def main():
@@ -11,20 +13,18 @@ def main():
 @main.command()
 @argument('question', type = str)
 def ask(question: str):
+    context = OrkgContext()
+
     completion = cc.create(
         model = 'gpt-3.5-turbo',
         messages = [
             {
                 'role': 'user',
                 'content': f'''
-                I have the following knowledge graph:
+                I have a knowledge graph which includes the following fragment:
 
                 '
-                @prefix mco: <http://kgrl.org/mco#> .
-
-                mco:foo mco:friend mco:bar; mco:baz.
-
-                mco:foo mco:age 17.
+                {context.cut(question)}
                 '
 
                 Generate SPARQL query which allows to answer the question "{question}" using this graph
