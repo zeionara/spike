@@ -4,8 +4,11 @@ prefix r: <http://orkg.org/orkg/resource/>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-select distinct ?property ?label
+select distinct (sample(?property) as ?property) ?label
 where {
   ?subject ?property ?object.
   ?property rdfs:label ?label.
+
+  filter(strlen(?label) > 3)
 }
+group by ?label
