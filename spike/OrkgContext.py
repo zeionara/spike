@@ -1,11 +1,12 @@
-from abc import ABC, abstractmethod
-from typing import ClassVar
 from os import path
-from dataclasses import dataclass
 
 import pickle as pkl
 
-from .util import cut_prefix, read
+from .util import read
+
+from .ClassContextEntry import ClassContextEntry
+from .PrefixContextEntry import PrefixContextEntry
+from .PropertyContextEntry import PropertyContextEntry
 
 from requests import get
 
@@ -13,6 +14,7 @@ PREFIXES = {
     'http://www.w3.org/2002/07/owl': 'w',
     # 'http://www.w3.org/2000/01/rdf-schema': 'r',
     'http://orkg.org/orkg/class': 'c',
+    'http://orkg.org/orkg/predicate': 'p',
     'http://www.w3.org/1999/02/22-rdf-syntax-ns': 'r'
 }
 
@@ -21,66 +23,6 @@ TRAILERS = {
     'r': '#',
     'c': '/'
 }
-
-
-class ContextEntry(ABC):
-    mark: ClassVar[str] = None
-
-    @property
-    @abstractmethod
-    def description(self):
-        pass
-
-
-@dataclass
-class PrefixContextEntry(ContextEntry):
-    mark: ClassVar[str] = 'prefix'
-
-    uri: str
-    shortcut: str
-    trailer: str
-
-    @staticmethod
-    def from_dict(prefixes: dict[str, str], trailers: dict[str, str], default: str = '#'):
-        entries = []
-
-        for uri, shortcut in prefixes.items():
-            entries.append(
-                PrefixContextEntry(uri, shortcut, trailers.get(shortcut, default))
-            )
-
-        return entries
-
-    @property
-    def description(self):
-        return f'@prefix {self.shortcut}: <{self.uri}{self.trailer}>'
-
-
-@dataclass
-class ClassContextEntry(ContextEntry):
-    mark: ClassVar[str] = 'class'
-
-    prefix: str
-    name: str
-    label: str
-
-    # def __init__(self, uri: str, label: str, prefixes: dict[str, str]):
-    #     self.name = cut_prefix(uri, prefixes)
-    #     self.label = label
-
-    @classmethod
-    def from_binding(cls, binding: dict, prefixes: dict[str, str]):
-        prefix, name = cut_prefix(binding['class']['value'], prefixes)
-
-        return ClassContextEntry(
-            prefix = prefix,
-            name = name,
-            label = binding['label']['value']
-        )
-
-    @property
-    def description(self):
-        return f'{self.prefix}:{self.name} r:label {self.label}. _ r:type {self.prefix}:{self.name}'
 
 
 class OrkgContext:
@@ -96,33 +38,27 @@ class OrkgContext:
 
         # 2. Get class context data from the knowledge graph
 
-        response = self.get_triples(
+        classes = self.get_triples(
             read('assets/queries/classes.rq')
         )
 
+        properties = self.get_triples(
+            read('assets/queries/properties.rq')
+        )
+
         # 3. Generate context entries
-
-        # context = []
-
-        # for uri, shortcut in PREFIXES.items():
-        #     context.append(f'@prefix {shortcut}: <{uri}{TRAILERS[shortcut]}>')
-
-        # context.append('')
 
         context = PrefixContextEntry.from_dict(PREFIXES, TRAILERS)
 
         context.append(None)
 
-        for binding in response.json()['results']['bindings']:
+        for binding in classes:
             context.append(ClassContextEntry.from_binding(binding, prefixes = PREFIXES))
-            # class_ = cut_prefix(binding['class']['value'], PREFIXES)
-            # label = binding['label']['value']
 
-            # context.append(f'{class_} r:label "{label}". _ r:type {class_}.')
+        for binding in properties:
+            context.append(PropertyContextEntry.from_binding(binding, prefixes = PREFIXES))
 
         self.context = context
-
-        print(context[:10])
 
         with open(cache_path, 'wb') as file:
             pkl.dump(context, file)
@@ -133,10 +69,9 @@ class OrkgContext:
             for entry in self.context
             if (
                 entry is None or
-                entry.mark != 'class' or
+                entry.mark == PrefixContextEntry.mark or
                 matches(entry, phrase)
             )
-            # if 'r:label' not in line or line.split('"')[1].split('"')[0].lower() in phrase.lower()
         ])
 
     @property
@@ -148,4 +83,4 @@ class OrkgContext:
         return self.root.format(path = 'triplestore')
 
     def get_triples(self, query: str):
-        return get(self.triplestore, {'query': query}, headers = {'Accept': 'application/sparql-results+json'})
+        return get(self.triplestore, {'query': query}, headers = {'Accept': 'application/sparql-results+json'}, timeout = 120).json()['results']['bindings']
