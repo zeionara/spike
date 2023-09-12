@@ -1,0 +1,19 @@
+prefix c: <http://orkg.org/orkg/class/>
+prefix r: <http://orkg.org/orkg/resource/>
+
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+select distinct ?class ?label
+where {
+  ?resource rdf:type ?class.
+  ?class rdfs:label ?label
+  filter not exists {
+    ?class rdfs:label ?label.
+    filter regex(?label, "[A-Z]+[0-9]+")
+  }
+  filter not exists {
+    ?class rdfs:label ?label.
+    filter regex(?label, "[a-z]+:[A-Z0-9_]+")
+  }
+}

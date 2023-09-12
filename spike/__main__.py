@@ -12,9 +12,10 @@ def main():
 
 @main.command()
 @argument('question', type = str)
-@option('-d', '--dry-run', is_flag = True)
-def ask(question: str, dry_run: bool):
-    context = OrkgContext()
+@option('-d', '--dry-run', is_flag = True, help = 'Print generated context and exit')
+@option('-f', '--fresh', is_flag = True, help = 'Don\'t use cached context entries, generate them from scratch')
+def ask(question: str, dry_run: bool, fresh: bool):
+    context = OrkgContext(fresh = fresh)
 
     if dry_run:
         # print(context.description)

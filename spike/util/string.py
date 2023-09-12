@@ -14,9 +14,9 @@ def cut_prefix(uri: str, prefixes: dict[str, str], sep: str = '#'):
     if len(parts) < 2:
         if sep == '#':
             return cut_prefix(uri, prefixes, sep = '/')
-        return uri
+        return None, uri
 
     if prefix := prefixes.get(parts[0]):
-        return f'{prefix}:{parts[1]}'
+        return prefix, parts[1]  # f'{prefix}:{parts[1]}'
 
     raise ValueError(f'Cannot find prefix shortcut for uri {parts[0]}')
