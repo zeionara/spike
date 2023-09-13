@@ -3,6 +3,7 @@ from click import group, argument, option
 from openai import ChatCompletion as cc
 
 from .OrkgContext import OrkgContext
+from .similarity import compare as compare_strings
 
 
 @group()
@@ -40,6 +41,13 @@ def ask(question: str, dry_run: bool, fresh: bool):
         )
 
         print(completion.choices[0].message.content)
+
+
+@main.command()
+@argument('lhs', type = str)
+@argument('rhs', type = str)
+def compare(lhs: str, rhs: str):
+    print(f'The similarity of strings "{lhs}" and "{rhs}" is {compare_strings(lhs, rhs)}')
 
 
 if __name__ == '__main__':
