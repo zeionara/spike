@@ -3,7 +3,8 @@ from click import group, argument, option
 from openai import ChatCompletion as cc
 
 from .OrkgContext import OrkgContext
-from .similarity import compare as compare_strings
+from .similarity import compare as compare_strings, rank
+from .SciQA import SciQA
 
 
 @group()
@@ -48,6 +49,24 @@ def ask(question: str, dry_run: bool, fresh: bool):
 @argument('rhs', type = str)
 def compare(lhs: str, rhs: str):
     print(f'The similarity of strings "{lhs}" and "{rhs}" is {compare_strings(lhs, rhs)}')
+
+
+@main.command()
+@option('-n', '--top-n', type = int, default = 3)
+def trace(top_n: int):
+    # print(rank('foo', ['qux', 'o', 'fo'], top_n = 2))
+
+    sciqa = SciQA()
+
+    train_entries = sciqa.train.entries
+
+    for test_utterance in sciqa.test.utterances[:1]:
+        print(f'Test sample: {test_utterance}')
+        print(f'Similar train samples: {rank(test_utterance, train_entries, top_n, get_utterance = lambda entry: entry.utterance)}')
+        print('')
+
+    # print(len(sciqa.train.utterances))
+    # print(len(sciqa.test.utterances))
 
 
 if __name__ == '__main__':
