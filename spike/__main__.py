@@ -7,6 +7,9 @@ from .similarity import compare as compare_strings, rank
 from .SciQA import SciQA
 
 
+NEW_LINE = '\n'
+
+
 @group()
 def main():
     pass
@@ -19,24 +22,40 @@ def main():
 def ask(question: str, dry_run: bool, fresh: bool):
     context = OrkgContext(fresh = fresh)
 
-    if dry_run:
-        # print(context.description)
-        print(context.cut(question))
-    else:
+    # if dry_run:
+    #     # print(context.description)
+    #     print(context.cut(question))
+    # else:
+    examples, graph = context.cut(question)
+
+    string_examples = []
+
+    for example in examples:
+        string_examples.append(f'Also I know that for a similar question "{example.utterance}" the correct query is \n```\n{example.query}\n```.')
+
+    # print('\n'.join(string_examples))
+
+    content = f'''
+    I have a knowledge graph which includes the following fragment:
+
+    '
+    {graph}
+    '
+
+    Generate SPARQL query which allows to answer the question "{question}" using this graph
+
+    {NEW_LINE.join(string_examples)}
+    '''
+
+    # print(content)
+
+    if not dry_run:
         completion = cc.create(
             model = 'gpt-3.5-turbo',
             messages = [
                 {
                     'role': 'user',
-                    'content': f'''
-                    I have a knowledge graph which includes the following fragment:
-
-                    '
-                    {context.cut(question)}
-                    '
-
-                    Generate SPARQL query which allows to answer the question "{question}" using this graph
-                    '''
+                    'content': content
                 }
             ]
         )

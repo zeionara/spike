@@ -129,3 +129,164 @@ SELECT (COUNT(?researchApproach) AS ?countResearchApproaches) WHERE {
 
 This query selects all instances (`?researchApproach`) that have the type `c:C65001` (which represents the "Research approach" class) and counts the number of occurrences using the `COUNT` function. The result is assigned to the variable `?countResearchApproaches`.
 ````
+
+### Find the best model
+
+#### Input:
+
+```sh
+python -m spike ask 'Which model has achieved the highest Accuracy score on the Story Cloze Test benchmark dataset?'
+```
+
+#### Message:
+
+````sh
+I have a knowledge graph which includes the following fragment:
+
+'
+@prefix w: <http://www.w3.org/2002/07/owl#>
+@prefix c: <http://orkg.org/orkg/class/>
+@prefix p: <http://orkg.org/orkg/predicate#>
+@prefix r: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+c:BENCHMARK_DATASET r:label Benchmark Dataset. _ r:type c:BENCHMARK_DATASET.
+c:Benchmark r:label Benchmark. _ r:type c:Benchmark.
+c:C14022 r:label Benchmark. _ r:type c:C14022.
+c:C14025 r:label Dataset. _ r:type c:C14025.
+c:C20019 r:label Data. _ r:type c:C20019.
+c:C21025 r:label model. _ r:type c:C21025.
+c:C37004 r:label Dataset. _ r:type c:C37004.
+c:C58020 r:label Data. _ r:type c:C58020.
+c:C58028 r:label Model. _ r:type c:C58028.
+c:Data r:label Data. _ r:type c:Data.
+c:Dataset r:label Dataset. _ r:type c:Dataset.
+c:Model r:label Model. _ r:type c:Model.
+p:P2005 r:label dataset. _ p:P2005 _.
+p:P18019 r:label Test. _ p:P18019 _.
+p:P57032 r:label Highest. _ p:P57032 _.
+p:PWC_HAS_BENCHMARK r:label Benchmark. _ p:PWC_HAS_BENCHMARK _.
+p:P18048 r:label Accuracy. _ p:P18048 _.
+p:P5083 r:label mode. _ p:P5083 _.
+p:P1004 r:label model. _ p:P1004 _.
+p:P23050 r:label achieved. _ p:P23050 _.
+p:DATA r:label Data. _ p:DATA _.
+p:P82004 r:label score. _ p:P82004 _.
+p:P25052 r:label achieve. _ p:P25052 _.
+p:P96045 r:label Dataset. _ p:P96045 _.
+'
+
+Generate SPARQL query which allows to answer the question "Which model has achieved the highest Accuracy score on the Story Cloze Test benchmark dataset?" using this graph
+
+Also I know that for a similar question "Which model has achieved the highest Matched score on the MultiNLI benchmark dataset?" the correct query is 
+```
+SELECT DISTINCT ?model ?model_lbl
+WHERE {
+  ?metric     a       orkgc:Metric;
+              rdfs:label  ?metric_lbl.
+  FILTER (str(?metric_lbl) = "Matched")
+  {
+    SELECT ?model ?model_lbl
+    WHERE {
+      ?dataset       a                orkgc:Dataset;
+                      rdfs:label       ?dataset_lbl.
+      FILTER (str(?dataset_lbl) = "MultiNLI")
+      ?benchmark      orkgp:HAS_DATASET       ?dataset;
+                      orkgp:HAS_EVALUATION    ?eval.
+      ?eval           orkgp:HAS_VALUE         ?value;
+                      orkgp:HAS_METRIC         ?metric.
+      ?cont         orkgp:HAS_BENCHMARK      ?benchmark;
+                    orkgp:HAS_MODEL          ?model.
+      ?model      rdfs:label               ?model_lbl.
+    }
+    ORDER BY DESC(?value)
+    LIMIT 1
+  }
+}
+```.
+Also I know that for a similar question "Which model has achieved the highest Top 5 Accuracy score on the ObjectNet benchmark dataset?" the correct query is 
+```
+SELECT DISTINCT ?model ?model_lbl
+WHERE {
+  ?metric     a       orkgc:Metric;
+              rdfs:label  ?metric_lbl.
+  FILTER (str(?metric_lbl) = "Top 5 Accuracy")
+  {
+    SELECT ?model ?model_lbl
+    WHERE {
+      ?dataset       a                orkgc:Dataset;
+                      rdfs:label       ?dataset_lbl.
+      FILTER (str(?dataset_lbl) = "ObjectNet")
+      ?benchmark      orkgp:HAS_DATASET       ?dataset;
+                      orkgp:HAS_EVALUATION    ?eval.
+      ?eval           orkgp:HAS_VALUE         ?value;
+                      orkgp:HAS_METRIC         ?metric.
+      ?cont         orkgp:HAS_BENCHMARK      ?benchmark;
+                    orkgp:HAS_MODEL          ?model.
+      ?model      rdfs:label               ?model_lbl.
+    }
+    ORDER BY DESC(?value)
+    LIMIT 1
+  }
+}
+```.
+Also I know that for a similar question "Which model has achieved the highest Score score on the Atari 2600 Berzerk benchmark dataset?" the correct query is 
+```
+SELECT DISTINCT ?model ?model_lbl
+WHERE {
+  ?metric     a       orkgc:Metric;
+              rdfs:label  ?metric_lbl.
+  FILTER (str(?metric_lbl) = "Score")
+  {
+    SELECT ?model ?model_lbl
+    WHERE {
+      ?dataset       a                orkgc:Dataset;
+                      rdfs:label       ?dataset_lbl.
+      FILTER (str(?dataset_lbl) = "Atari 2600 Berzerk")
+      ?benchmark      orkgp:HAS_DATASET       ?dataset;
+                      orkgp:HAS_EVALUATION    ?eval.
+      ?eval           orkgp:HAS_VALUE         ?value;
+                      orkgp:HAS_METRIC         ?metric.
+      ?cont         orkgp:HAS_BENCHMARK      ?benchmark;
+                    orkgp:HAS_MODEL          ?model.
+      ?model      rdfs:label               ?model_lbl.
+    }
+    ORDER BY DESC(?value)
+    LIMIT 1
+  }
+}
+```.
+````
+
+#### Output
+
+````sh
+To answer the question "Which model has achieved the highest Accuracy score on the Story Cloze Test benchmark dataset?", the following SPARQL query can be used:
+
+```
+SELECT DISTINCT ?model ?model_lbl
+WHERE {
+  ?metric     a       orkgc:Metric;
+              rdfs:label  ?metric_lbl.
+  FILTER (str(?metric_lbl) = "Accuracy")
+  {
+    SELECT ?model ?model_lbl
+    WHERE {
+      ?dataset       a                orkgc:Dataset;
+                      rdfs:label       ?dataset_lbl.
+      FILTER (str(?dataset_lbl) = "Story Cloze Test")
+      ?benchmark      orkgp:HAS_DATASET       ?dataset;
+                      orkgp:HAS_EVALUATION    ?eval.
+      ?eval           orkgp:HAS_VALUE         ?value;
+                      orkgp:HAS_METRIC         ?metric.
+      ?cont         orkgp:HAS_BENCHMARK      ?benchmark;
+                    orkgp:HAS_MODEL          ?model.
+      ?model      rdfs:label               ?model_lbl.
+    }
+    ORDER BY DESC(?value)
+    LIMIT 1
+  }
+}
+```
+
+This query will retrieve the model and its label that has achieved the highest Accuracy score on the Story Cloze Test benchmark dataset.
+````

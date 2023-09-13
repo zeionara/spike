@@ -7,6 +7,8 @@ from .util import read
 from .ClassContextEntry import ClassContextEntry
 from .PrefixContextEntry import PrefixContextEntry
 from .PropertyContextEntry import PropertyContextEntry
+from .SciQA import SciQA
+from .similarity import rank
 
 from requests import get
 
@@ -29,6 +31,10 @@ class OrkgContext:
     root = 'https://orkg.org/{path}'
 
     def __init__(self, cache_path: str = path.join('assets', 'cache', 'orkg-context.pkl'), fresh: bool = False):
+        # 0. Read SciQA dataset (which caches itself)
+
+        self.sciqa = SciQA()
+
         # 1. Try loading the context entries from cache
 
         if not fresh and path.isfile(cache_path):
@@ -64,7 +70,9 @@ class OrkgContext:
             pkl.dump(context, file)
 
     def cut(self, phrase: str, matches: callable = lambda entry, phrase: entry.label.lower() in phrase.lower()):
-        return '\n'.join([
+        examples = rank(phrase, self.sciqa.train.entries, top_n = 3, get_utterance = lambda entry: entry.utterance)
+
+        return examples, '\n'.join([
             '' if entry is None else entry.description
             for entry in self.context
             if (
