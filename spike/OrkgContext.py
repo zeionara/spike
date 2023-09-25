@@ -12,6 +12,12 @@ from .similarity import rank
 
 from requests import get
 
+HEADER = '''
+prefix orkgp: <http://orkg.org/orkg/predicate#>
+prefix orkgc: <http://orkg.org/orkg/class#>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+'''
+
 PREFIXES = {
     'http://www.w3.org/2002/07/owl': 'w',
     # 'http://www.w3.org/2000/01/rdf-schema': 'r',
@@ -91,4 +97,11 @@ class OrkgContext:
         return self.root.format(path = 'triplestore')
 
     def get_triples(self, query: str):
-        return get(self.triplestore, {'query': query}, headers = {'Accept': 'application/sparql-results+json'}, timeout = 120).json()['results']['bindings']
+        # prefixes = PrefixContextEntry.from_dict(PREFIXES, TRAILERS)
+        # header = '\n'.join([prefix.description for prefix in prefixes])
+
+        response = get(self.triplestore, {'query': f'{HEADER}\n{query}'}, headers = {'Accept': 'application/sparql-results+json'}, timeout = 120)
+
+        # print(response.text)
+
+        return response.json()['results']['bindings']

@@ -1,3 +1,9 @@
+import re
+
+
+SPACE = re.compile('\\s')
+
+
 def put_prefix(uri: str, prefix: str):
     parts = uri.split('#')
 
@@ -20,3 +26,7 @@ def cut_prefix(uri: str, prefixes: dict[str, str], sep: str = '#'):
         return prefix, parts[1]  # f'{prefix}:{parts[1]}'
 
     raise ValueError(f'Cannot find prefix shortcut for uri {parts[0]}')
+
+
+def drop_spaces(text: str):
+    return SPACE.sub('', text)
