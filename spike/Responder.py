@@ -3,6 +3,7 @@ from os import path
 from pickle import load, dump
 
 from openai import ChatCompletion as cc
+from rdflib import Graph
 
 from .OrkgContext import OrkgContext
 
@@ -28,16 +29,29 @@ Generate SPARQL query which allows to answer the question "{question}".
 '''
 
 
+def load_cache(cache_path: str):
+    if cache_path is not None and path.isfile(cache_path):
+        with open(cache_path, 'rb') as file:
+            return load(file)
+
+    return None
+
+
+def dump_cache(cache_path: str, content):
+    if cache_path is not None:
+        with open(cache_path, 'wb') as file:
+            dump(content, file)
+
+
 class Responder:
-    def __init__(self, cache_path: str):
-        cache = None
+    def __init__(self, query_cache_path: str, answer_cache_path: str, graph: Graph = None):
+        self.query_cache_path = query_cache_path
+        self.answer_cache_path = answer_cache_path
 
-        if cache_path is not None and path.isfile(cache_path):
-            with open(cache_path, 'rb') as file:
-                cache = load(file)
+        self.query_cache = load_cache(query_cache_path)
+        self.answer_cache = load_cache(answer_cache_path)
 
-        self.cache_path = cache_path
-        self.cache = cache
+        self.graph = graph
 
     def _extract_query(self, answer: str):
         parts = answer.replace('```sparql', '```').split('```')
@@ -48,23 +62,38 @@ class Responder:
 
         return parts[1]
 
-    def _execute(self, answer: str, context: OrkgContext):
+    def _execute(self, question: str, answer: str, context: OrkgContext):
         query = self._extract_query(answer)
 
-        # print(query)
+        answer_cache = self.answer_cache
 
-        return query, context.get_triples(query)
+        cached_results = None if answer_cache is None else answer_cache.get(question)
+
+        if cached_results is not None:
+            return query, cached_results
+
+        results = context.get_triples(query)
+
+        if answer_cache is None:
+            answer_cache = {question: results}
+            self.answer_cache = answer_cache
+        else:
+            answer_cache[question] = results
+
+        dump_cache(self.answer_cache_path, answer_cache)
+
+        return query, results
 
     def ask(self, question: str, fresh: bool = False, dry_run: bool = False):
-        cache = self.cache
+        query_cache = self.query_cache
 
-        context = OrkgContext(fresh = fresh)
+        context = OrkgContext(fresh = fresh, graph = self.graph)
 
-        if cache is not None and not dry_run:
-            answer = cache.get(question)
+        if query_cache is not None and not dry_run:
+            answer = query_cache.get(question)
 
             if answer is not None:
-                return self._execute(answer, context)
+                return self._execute(question, answer, context)
 
         # examples, graph = context.cut(question)
         examples, _ = context.cut(question)
@@ -95,15 +124,12 @@ class Responder:
 
             answer = completion.choices[0].message.content
 
-        cache_path = self.cache_path
+        if query_cache is None:
+            query_cache = {question: answer}
+            self.query_cache = query_cache
+        else:
+            query_cache[question] = answer
 
-        if cache_path is not None:
-            if cache is None:
-                cache = {question: answer}
-            else:
-                cache[question] = answer
+        dump_cache(self.query_cache_path, query_cache)
 
-            with open(cache_path, 'wb') as file:
-                dump(cache, file)
-
-        return self._execute(answer, context)
+        return self._execute(question, answer, context)

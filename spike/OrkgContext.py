@@ -1,6 +1,8 @@
 from os import path
-
 import pickle as pkl
+
+from rdflib import Graph
+from pyparsing.exceptions import ParseException
 
 from .util import read
 
@@ -14,8 +16,8 @@ from requests import get
 from requests.exceptions import JSONDecodeError
 
 HEADER = '''
-prefix orkgp: <http://orkg.org/orkg/predicate#>
-prefix orkgc: <http://orkg.org/orkg/class#>
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 '''
 
@@ -37,7 +39,9 @@ TRAILERS = {
 class OrkgContext:
     root = 'https://orkg.org/{path}'
 
-    def __init__(self, cache_path: str = path.join('assets', 'cache', 'orkg-context.pkl'), fresh: bool = False):
+    def __init__(self, cache_path: str = path.join('assets', 'cache', 'orkg-context.pkl'), fresh: bool = False, graph: Graph = None):
+        self.graph = graph
+
         # 0. Read SciQA dataset (which caches itself)
 
         self.sciqa = SciQA()
@@ -101,12 +105,30 @@ class OrkgContext:
         # prefixes = PrefixContextEntry.from_dict(PREFIXES, TRAILERS)
         # header = '\n'.join([prefix.description for prefix in prefixes])
 
-        response = get(self.triplestore, {'query': f'{HEADER}\n{query}'}, headers = {'Accept': 'application/sparql-results+json'}, timeout = 120)
+        query = f'{HEADER}\n{query}'
 
-        # print(response.text)
+        # print(query)
 
-        try:
-            return response.json()['results']['bindings']
-        except JSONDecodeError:
-            print(f'Cannot extract entries from response {response.text}. Returning an empty list...')
-            return []
+        if self.graph is None:
+            response = get(self.triplestore, {'query': query}, headers = {'Accept': 'application/sparql-results+json'}, timeout = 120)
+
+            # print(response.text)
+
+            try:
+                return response.json()['results']['bindings']
+            except JSONDecodeError:
+                print(f'Cannot extract entries from response {response.text}. Returning an empty list...')
+                return []
+        else:
+            try:
+                response = self.graph.query(query)
+            except ParseException:
+                print('Cannot execute query!!!')
+                print(query)
+                return []
+
+            return [
+                str(cell)
+                for row in response
+                for cell in row
+            ]

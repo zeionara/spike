@@ -1,8 +1,9 @@
-# from os import path
-# from pickle import load, dump
+from os import path
+from pickle import load as loadd, dump as dumpp
 
-from json import load
+from json import load, dump
 from click import group, argument, option
+from rdflib import Graph
 
 # from openai import ChatCompletion as cc
 
@@ -14,6 +15,7 @@ from .util import drop_spaces
 
 
 NEW_LINE = '\n'
+MARK = '-' * 10
 
 
 @group()
@@ -22,15 +24,41 @@ def main():
 
 
 @main.command()
-@argument('question', type = str)
+@argument('question', type = str, default = None, required = False)
 @option('-d', '--dry-run', is_flag = True, help = 'Print generated context and exit')
 @option('-f', '--fresh', is_flag = True, help = 'Don\'t use cached context entries, generate them from scratch')
-@option('-c', '--cache-path', type = str, help = 'Path to the cached answers', default = 'assets/answers.pkl')
+@option('-c', '--cache-path', type = str, help = 'Path to the cached answers', default = 'assets/queries.pkl')
 @option('-q', '--questions-path', type = str, help = 'Path to the file with questions', default = None)
-def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_path: str):
-    responder = Responder(cache_path)
+@option('-g', '--graph-path', type = str, help = 'Path with .nt file with knowledge graph which should be used for generated query execution')
+@option('--graph-cache', type = str, help = 'Path to the cached result of graph parsing', default = 'assets/orkg.pkl')
+@option('-a', '--answers-path', type = str, help = 'Path to the output .json file with answers', default = 'assets/answers.json')
+@option('-z', '--answer-cache-path', type = str, help = 'Path to file which contains cached results of generated sparql queries execution', default = 'assets/answers.pkl')
+def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_path: str, graph_path: str, graph_cache: str, answers_path: str, answer_cache_path: str):
+    graph = None
+
+    # Parse graph or load from cache
+
+    if graph_path is not None:
+        if path.isfile(graph_cache):
+            with open(graph_cache, 'rb') as file:
+                graph = loadd(file)
+        else:
+            graph = Graph()
+
+            print('parsing graph...')
+            graph.parse(graph_path)
+
+            with open(graph_cache, 'wb') as file:
+                dumpp(graph, file)
+
+    # Run queries, send them to the parsed graph, get answers and write them to an external file
+
+    responder = Responder(cache_path, answer_cache_path, graph = graph)
 
     if questions_path is None:
+        if question is None:
+            raise ValueError('If questions-path is not provided, then question must be given as the first argument')
+
         answer = responder.ask(question, fresh = fresh, dry_run = dry_run)
         print(answer)
     else:
@@ -40,25 +68,45 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
         n_matched_queries = 0
         n_queries = 0
 
+        answers = []
+
         for i, entry in enumerate(content):
             question = entry["question"]["string"]
 
             print(f'{i:03d}. {question}')
 
+            # if i in (26, 53):  # these queries take a lot of time to process
+            #     answers.append({
+            #         'id': entry['id'],
+            #         'answer': []
+            #     })
+            # else:
             query, answer = responder.ask(question)
+
+            answers.append({
+                'id': entry['id'],
+                'answer': answer
+            })
 
             if drop_spaces(query) == drop_spaces(entry['query']['sparql']):
                 n_matched_queries += 1
             else:
+                print(f'{MARK} Queries differ')
+                print(f'{MARK} Generated:')
                 print(query)
+                print(f'{MARK} Reference:')
                 print(entry['query']['sparql'])
+                print(MARK)
 
-            if len(answer) > 0:
-                print(answer)
+            # if len(answer) > 0:
+            #     print(answer)
 
             n_queries += 1
 
-        print('precision: ', n_matched_queries / n_queries)
+        print('question precision: ', n_matched_queries / n_queries)
+
+    with open(answers_path, 'w', encoding = 'utf-8') as file:
+        dump(answers, file, indent = 4)
 
     # cache = None
 
