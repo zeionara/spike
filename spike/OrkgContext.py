@@ -11,6 +11,7 @@ from .SciQA import SciQA
 from .similarity import rank
 
 from requests import get
+from requests.exceptions import JSONDecodeError
 
 HEADER = '''
 prefix orkgp: <http://orkg.org/orkg/predicate#>
@@ -104,4 +105,8 @@ class OrkgContext:
 
         # print(response.text)
 
-        return response.json()['results']['bindings']
+        try:
+            return response.json()['results']['bindings']
+        except JSONDecodeError:
+            print(f'Cannot extract entries from response {response.text}. Returning an empty list...')
+            return []

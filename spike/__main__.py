@@ -40,7 +40,7 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
         n_matched_queries = 0
         n_queries = 0
 
-        for i, entry in enumerate(content[:50]):
+        for i, entry in enumerate(content):
             question = entry["question"]["string"]
 
             print(f'{i:03d}. {question}')
