@@ -1,9 +1,13 @@
+import re
 from os import path
 from pickle import load as loadd, dump as dumpp
 
 from json import load, dump
 from click import group, argument, option
 from rdflib import Graph
+from halo import Halo
+
+from llama_index import GPTVectorStoreIndex, download_loader, StorageContext, load_index_from_storage
 
 # from openai import ChatCompletion as cc
 
@@ -16,6 +20,8 @@ from .util import drop_spaces
 
 NEW_LINE = '\n'
 MARK = '-' * 10
+
+LABEL_LINE = re.compile(r'>(\s+)<\S+[A-Z]+[0-9]+>(\s+.+XMLSchema#string>)')
 
 
 @group()
@@ -198,6 +204,45 @@ def trace(top_n: int):
 
     # print(len(sciqa.train.utterances))
     # print(len(sciqa.test.utterances))
+
+
+@main.command()
+@option('-g', '--graph-path', help = 'path to the .nt file with input graph which should be embedded', default = 'assets/cities.nt')
+@option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
+def embed(graph_path: str, cache_path: str):
+    RDFReader = download_loader('RDFReader')
+
+    if path.isdir(cache_path):
+        with Halo(text = 'Restoring index', spinner = 'dots'):
+            index = load_index_from_storage(StorageContext.from_defaults(persist_dir = cache_path))
+    else:
+        with Halo(text = 'Loading graph', spinner = 'dots'):
+            graph = RDFReader().load_data(file = graph_path)
+
+        with Halo(text = 'Generating embeddings', spinner = 'dots'):
+            index = GPTVectorStoreIndex(graph)
+            index.storage_context.persist(persist_dir = cache_path)
+
+    # response = index.as_query_engine().query('List all places in a quoted Python array, then explain why')
+    # print(response.response)
+
+
+@main.command()
+@argument('input-path')
+@option('-o', '--output-path', help = 'path to the output file', default = 'assets/labelled-corpus.nt')
+def normalize_labels(input_path: str, output_path: str):
+    with open(input_path, 'r', encoding = 'utf-8') as input_file:
+        with open(output_path, 'w', encoding = 'utf-8') as output_file:
+            while True:
+                line = input_file.readline()
+
+                if not line:
+                    break
+
+                line = line[:-1]
+
+                # print(line)
+                output_file.write(LABEL_LINE.sub(r'>\g<1><http://www.w3.org/2000/01/rdf-schema#label>\g<2>', line) + '\n')
 
 
 if __name__ == '__main__':
