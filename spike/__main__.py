@@ -218,16 +218,17 @@ def embed(graph_path: str, cache_path: str):
             index = load_index_from_storage(StorageContext.from_defaults(persist_dir = cache_path))
     else:
         # with Halo(text = 'Loading graph', spinner = 'dots'):
-        documents = RDFReader().load_data(file = graph_path)
+        documents = RDFReader().load_data(file = graph_path, max_document_size = 256)
 
         # print(documents)
 
-        with Halo(text = 'Generating embeddings', spinner = 'dots'):
-            index = GPTVectorStoreIndex(documents)
-            index.storage_context.persist(persist_dir = cache_path)
+        # with Halo(text = 'Generating embeddings', spinner = 'dots'):
+        index = GPTVectorStoreIndex.from_documents(documents, show_progress = True)
+        index.storage_context.persist(persist_dir = cache_path)
 
-    # response = index.as_query_engine().query('List all places in a quoted Python array, then explain why')
-    # print(response.response)
+    response = index.as_query_engine().query('List all places in a quoted Python array, then explain why')
+    # response = index.as_query_engine().query('What is the type of contribution template')
+    print(response.response)
 
 
 @main.command()

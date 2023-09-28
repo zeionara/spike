@@ -63,7 +63,7 @@ class RDFReader(BaseReader):
         # raise Exception(f"Label not found for: {uri}")
 
     def load_data(
-        self, file: Path, extra_info: Optional[Dict] = None
+        self, file: Path, extra_info: Optional[Dict] = None, max_document_size: int = 512
     ) -> List[Document]:
         """Parse file."""
 
@@ -77,12 +77,19 @@ class RDFReader(BaseReader):
         self.g_global.parse(str(self.RDFS))
 
         text_list = []
+        documents = []
 
         n_triples = int(
             list(
                 self.g_local.query('select (count(*) as ?cc) where { ?s ?p ?o }')
             )[0][0]
         )
+
+        def add():
+            nonlocal documents, text_list
+
+            documents.append(Document(text = '\n'.join(text_list)))
+            text_list = []
 
         with tqdm(total = n_triples) as pbar:
             for s, p, o in self.g_local:
@@ -96,8 +103,14 @@ class RDFReader(BaseReader):
                 )
                 text_list.append(triple)
 
+                if len(text_list) >= max_document_size:
+                    add()
+
                 pbar.update()
 
-        text = "\n".join(text_list)
+        add()
 
-        return [Document(text=text, extra_info=extra_info or {})]
+        # text = "\n".join(text_list)
+        # return [Document(text=text, extra_info=extra_info or {})]
+
+        return documents
