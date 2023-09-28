@@ -16,6 +16,7 @@ from .similarity import compare as compare_strings, rank
 from .SciQA import SciQA
 from .Responder import Responder
 from .util import drop_spaces
+from .RDFReader import RDFReader
 
 
 NEW_LINE = '\n'
@@ -210,17 +211,19 @@ def trace(top_n: int):
 @option('-g', '--graph-path', help = 'path to the .nt file with input graph which should be embedded', default = 'assets/cities.nt')
 @option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
 def embed(graph_path: str, cache_path: str):
-    RDFReader = download_loader('RDFReader')
+    # RDFReader = download_loader('RDFReader')
 
     if path.isdir(cache_path):
         with Halo(text = 'Restoring index', spinner = 'dots'):
             index = load_index_from_storage(StorageContext.from_defaults(persist_dir = cache_path))
     else:
-        with Halo(text = 'Loading graph', spinner = 'dots'):
-            graph = RDFReader().load_data(file = graph_path)
+        # with Halo(text = 'Loading graph', spinner = 'dots'):
+        documents = RDFReader().load_data(file = graph_path)
+
+        # print(documents)
 
         with Halo(text = 'Generating embeddings', spinner = 'dots'):
-            index = GPTVectorStoreIndex(graph)
+            index = GPTVectorStoreIndex(documents)
             index.storage_context.persist(persist_dir = cache_path)
 
     # response = index.as_query_engine().query('List all places in a quoted Python array, then explain why')
