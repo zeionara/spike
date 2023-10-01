@@ -212,7 +212,7 @@ def trace(top_n: int):
 @main.command()
 @option('-g', '--graph-path', help = 'path to the .nt file with input graph which should be embedded', default = 'assets/cities.nt')
 @option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
-@option('--device', help = 'device which to use for model execution', type = Choice(('cpu', 'cuda:0'), case_sensitive = True), default = 'cpu')
+@option('-d', '--device', help = 'device which to use for model execution', type = Choice(('cpu', 'cuda:0'), case_sensitive = True), default = 'cpu')
 @option('-b', '--batch-size', help = 'how many documents to computed embeddings for at once', default = 4)
 def embed(graph_path: str, cache_path: str, device: str, batch_size: int):
     # RDFReader = download_loader('RDFReader')
