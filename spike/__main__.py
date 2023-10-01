@@ -213,9 +213,12 @@ def trace(top_n: int):
 @option('-g', '--graph-path', help = 'path to the .nt file with input graph which should be embedded', default = 'assets/cities.nt')
 @option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
 @option('--device', help = 'device which to use for model execution', type = Choice(('cpu', 'cuda:0'), case_sensitive = True), default = 'cpu')
-def embed(graph_path: str, cache_path: str, device: str):
+@option('-b', '--batch-size', help = 'how many documents to computed embeddings for at once', default = 4)
+def embed(graph_path: str, cache_path: str, device: str, batch_size: int):
     # RDFReader = download_loader('RDFReader')
     tokenizer = AutoTokenizer.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = device)
+    tokenizer.pad_token = tokenizer.eos_token
+
     model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = device)
     # model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b')
 
@@ -233,7 +236,16 @@ def embed(graph_path: str, cache_path: str, device: str):
                 )
             ).last_hidden_state,
             dim = (0, 1)
-        ).tolist()
+        ).to('cpu').tolist()
+
+    def embed_batch(batch: list):
+        texts = [document.text for document in batch]
+
+        inputs = tokenizer(texts, return_tensors = 'pt', padding = True)
+        outputs = model(**to_device(inputs))
+
+        for embedding, document in zip(mean(outputs.last_hidden_state, dim = 1).to('cpu').tolist(), batch):
+            document.embedding = embedding
 
     if path.isdir(cache_path):
         with Halo(text = 'Restoring index', spinner = 'dots'):
@@ -243,14 +255,22 @@ def embed(graph_path: str, cache_path: str, device: str):
         documents = RDFReader().load_data(
             file = graph_path,
             max_document_size = 1,
-            embed = embed_one
+            embed = embed_batch,
+            batch_size = batch_size
+            # embed = embed_one
         )
 
         # print([document.text for document in documents])
 
         # return
 
+        # batch = []
+
+        # print(documents[-2].embedding)
+
         # for document in documents:
+        #     batch.append(document)
+
         #     # inputs = tokenizer(document.text, return_tensors = 'pt')
 
         #     # print(document.text)
@@ -259,10 +279,17 @@ def embed(graph_path: str, cache_path: str, device: str):
 
         #     # outputs = model(**inputs)
 
-        #     # print(mean(outputs.last_hidden_state, dim = (0, 1)).shape)
-        #     # print(len(mean(outputs.last_hidden_state, dim = (0, 1)).tolist()))
+        #     # print(outputs.last_hidden_state.shape)
 
-        #     # print(outputs.last_hidden_state)
+        # if len(batch) > 0:
+        #     embed_batch()
+
+        # return
+
+        # print(mean(outputs.last_hidden_state, dim = (0, 1)).shape)
+        # print(len(mean(outputs.last_hidden_state, dim = (0, 1)).tolist()))
+
+        # print(outputs.last_hidden_state)
 
         # with Halo(text = 'Generating embeddings', spinner = 'dots'):
         index = GPTVectorStoreIndex.from_documents(documents, show_progress = True)

@@ -63,7 +63,7 @@ class RDFReader(BaseReader):
         # raise Exception(f"Label not found for: {uri}")
 
     def load_data(
-        self, file: Path, extra_info: Optional[Dict] = None, max_document_size: int = 512, embed: callable = None
+        self, file: Path, extra_info: Optional[Dict] = None, max_document_size: int = 512, embed: callable = None, batch_size: int = 4
     ) -> List[Document]:
         """Parse file."""
 
@@ -78,6 +78,7 @@ class RDFReader(BaseReader):
 
         text_list = []
         documents = []
+        batch = []
 
         n_triples = int(
             list(
@@ -86,12 +87,18 @@ class RDFReader(BaseReader):
         )
 
         def add():
-            nonlocal documents, text_list
+            nonlocal documents, text_list, batch
 
             text = '\n'.join(text_list)
 
-            documents.append(Document(text = text, embedding = None if embed is None else embed(text)))
-            text_list = []
+            document = Document(text = text)
+
+            documents.append(document)
+            batch.append(document)
+
+            if len(batch) >= batch_size:
+                embed(batch)
+                batch = []
 
         with tqdm(total = n_triples) as pbar:
             for s, p, o in self.g_local:
@@ -107,11 +114,15 @@ class RDFReader(BaseReader):
 
                 if len(text_list) >= max_document_size:
                     add()
+                    text_list = []
 
                 pbar.update()
 
         if len(text_list) > 0:
             add()
+
+        if len(batch) > 0:
+            embed(batch)
 
         # text = "\n".join(text_list)
         # return [Document(text=text, extra_info=extra_info or {})]
