@@ -6,8 +6,10 @@ from json import load, dump
 from click import group, argument, option
 from rdflib import Graph
 from halo import Halo
+from transformers import AutoTokenizer, FalconModel
+from torch import mean
 
-from llama_index import GPTVectorStoreIndex, download_loader, StorageContext, load_index_from_storage
+from llama_index import GPTVectorStoreIndex, download_loader, StorageContext, load_index_from_storage, QueryBundle
 
 # from openai import ChatCompletion as cc
 
@@ -212,21 +214,60 @@ def trace(top_n: int):
 @option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
 def embed(graph_path: str, cache_path: str):
     # RDFReader = download_loader('RDFReader')
+    tokenizer = AutoTokenizer.from_pretrained('Rocketknight1/falcon-rw-1b')
+    # model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = 'cuda')
+    model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b')
+
+    def embed_one(text: str):
+        return mean(
+            model(
+                **tokenizer(text, return_tensors = 'pt')
+            ).last_hidden_state,
+            dim = (0, 1)
+        ).tolist()
 
     if path.isdir(cache_path):
         with Halo(text = 'Restoring index', spinner = 'dots'):
             index = load_index_from_storage(StorageContext.from_defaults(persist_dir = cache_path))
     else:
         # with Halo(text = 'Loading graph', spinner = 'dots'):
-        documents = RDFReader().load_data(file = graph_path, max_document_size = 256)
+        documents = RDFReader().load_data(
+            file = graph_path,
+            max_document_size = 1,
+            embed = embed_one
+        )
 
-        # print(documents)
+        # print([document.text for document in documents])
+
+        # return
+
+        # for document in documents:
+        #     # inputs = tokenizer(document.text, return_tensors = 'pt')
+
+        #     # print(document.text)
+        #     # print(inputs)
+        #     # print(document.embedding)
+
+        #     # outputs = model(**inputs)
+
+        #     # print(mean(outputs.last_hidden_state, dim = (0, 1)).shape)
+        #     # print(len(mean(outputs.last_hidden_state, dim = (0, 1)).tolist()))
+
+        #     # print(outputs.last_hidden_state)
 
         # with Halo(text = 'Generating embeddings', spinner = 'dots'):
         index = GPTVectorStoreIndex.from_documents(documents, show_progress = True)
         index.storage_context.persist(persist_dir = cache_path)
 
-    response = index.as_query_engine().query('List all places in a quoted Python array, then explain why')
+    query = 'List all places in a quoted Python array, then explain why'
+
+    response = index.as_query_engine().query(
+        QueryBundle(
+            query_str = query,
+            embedding = embed_one(query)
+        )
+    )
+
     # response = index.as_query_engine().query('What is the type of contribution template')
     print(response.response)
 
