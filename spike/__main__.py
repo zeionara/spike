@@ -3,7 +3,7 @@ from os import path
 from pickle import load as loadd, dump as dumpp
 
 from json import load, dump
-from click import group, argument, option
+from click import group, argument, option, Choice
 from rdflib import Graph
 from halo import Halo
 from transformers import AutoTokenizer, FalconModel
@@ -212,16 +212,25 @@ def trace(top_n: int):
 @main.command()
 @option('-g', '--graph-path', help = 'path to the .nt file with input graph which should be embedded', default = 'assets/cities.nt')
 @option('-c', '--cache-path', help = 'path to the resulting file with embedded graph', default = 'assets/cities')
-def embed(graph_path: str, cache_path: str):
+@option('--device', help = 'device which to use for model execution', type = Choice(('cpu', 'cuda:0'), case_sensitive = True), default = 'cpu')
+def embed(graph_path: str, cache_path: str, device: str):
     # RDFReader = download_loader('RDFReader')
-    tokenizer = AutoTokenizer.from_pretrained('Rocketknight1/falcon-rw-1b')
-    # model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = 'cuda')
-    model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b')
+    tokenizer = AutoTokenizer.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = device)
+    model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b', device_map = device)
+    # model = FalconModel.from_pretrained('Rocketknight1/falcon-rw-1b')
+
+    def to_device(outputs: dict):
+        return {
+            'input_ids': outputs['input_ids'].to(device),
+            'attention_mask': outputs['attention_mask'].to(device)
+        }
 
     def embed_one(text: str):
         return mean(
             model(
-                **tokenizer(text, return_tensors = 'pt')
+                **to_device(
+                    tokenizer(text, return_tensors = 'pt')
+                )
             ).last_hidden_state,
             dim = (0, 1)
         ).tolist()
