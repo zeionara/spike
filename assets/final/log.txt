@@ -1,0 +1,657 @@
+000. List the title and ID of research papers that contain a benchmark over the TREC-6 dataset?
+['http://orkg.org/orkg/resource/R131153', 'Message Passing Attention Networks for Document Understanding']
+
+001. What is the top benchmark result (metric and value) over the dataset RotoWire (Relation Generation)?
+['http://orkg.org/orkg/resource/R116363', 'Precision', '89.46%', 'None', 'None', '87.47%', 'http://orkg.org/orkg/resource/R120300', 'count', '34.28']
+
+002. Can you list the models that have been evaluated on the BUCC French-to-English dataset?
+['http://orkg.org/orkg/resource/R124053', 'Massively Multilingual Sentence Embeddings']
+
+003. Indicate the model that performed best in terms of F1 metric on the OntoNotes benchmark dataset?
+['http://orkg.org/orkg/resource/R122119', 'He et al., 2017 + ELMo']
+
+004. What evaluation metrics are commonly used when benchmarking models on the WMT2014 English-German dataset?
+['http://orkg.org/orkg/resource/R116443', 'BLEU', 'http://orkg.org/orkg/resource/R117121', 'BLEU score']
+
+005. What is the top benchmark score and its metric on the Atari 2600 Seaquest dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', '931.6']
+
+006. What is the top benchmark result (metric and value) over the dataset NYT-single?
+['http://orkg.org/orkg/resource/R114483', 'F1', '59']
+
+007. Which model has achieved the highest Score score on the Ball in cup, catch (DMControl100k) benchmark dataset?
+['http://orkg.org/orkg/resource/R123293', 'CURL']
+
+008. Can you provide the highest benchmark result, including the metric and score, for the Pubmed dataset?
+['http://orkg.org/orkg/resource/R120314', 'ROUGE-1', '45.09']
+
+009. Can you provide links to code used in papers that benchmark the MEMEN (single model) model?
+[]
+
+010. What are the models that have been benchmarked on the FSNS - Test dataset?
+['http://orkg.org/orkg/resource/R114164', 'AttentionOCR_Inception-resnet-v2_Location', 'http://orkg.org/orkg/resource/R114166', 'SEE', 'http://orkg.org/orkg/resource/R114167', 'STREET']
+
+011. What is the best performing model benchmarking the CIFAR-10 Image Classification dataset in terms of Percentage error metric?
+['http://orkg.org/orkg/resource/R123733', 'NAT-M4']
+
+012. What is the best performing model benchmarking the Atari 2600 Up and Down dataset in terms of Score metric?
+['http://orkg.org/orkg/resource/R124908', 'DQN noop']
+
+013. Where can I find code references in papers that have used the SRU++ Base model for benchmarking purposes?
+['https://github.com/asappresearch/sru', 'https://github.com/taolei87/sru']
+
+014. Can you provide the highest benchmark result, including the metric and score, for the AAPD dataset?
+[]
+
+015. Which model has achieved the highest Score score on the Cheetah, run (DMControl500k) benchmark dataset?
+['http://orkg.org/orkg/resource/R123293', 'CURL']
+
+016. Where can I find code references in papers that have used the STREET model for benchmarking purposes?
+['https://github.com/LinearPi/OCR_Chinese', 'https://github.com/OzHsu23/chineseocr', 'https://github.com/witcher425/CHINESEOCR', 'https://github.com/xiaofengShi/CHINESE-OCR']
+
+017. What are the metrics of evaluation over the PubMed 20k RCT dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1']
+
+018. What is the best performing model benchmarking the Oxford-IIIT Pets dataset in terms of FLOPS metric?
+['http://orkg.org/orkg/resource/R126364', 'BiLSTM-TDN(ResNet-101)']
+
+019. What is the top benchmark result (metric and value) over the dataset BUCC French-to-English?
+['http://orkg.org/orkg/resource/R115445', 'F1 score', '93.91']
+
+020. Indicate the model that performed best in terms of Score metric on the Atari 2600 Montezuma's Revenge benchmark dataset?
+['http://orkg.org/orkg/resource/R124901', 'Gorila']
+
+021. List the code links in papers that use the Duel noop model in any benchmark?
+['https://github.com/la3lma/Chez', 'https://github.com/la3lma/chezjulia', 'https://github.com/mightypirate1/DRL-Tetris', 'https://github.com/austinsilveria/Banana-Collection-DQN', 'https://github.com/170928/-Review-Dueling-Deep-Q-Network', 'https://github.com/eddynelson/dqn', 'https://github.com/FaboNo/DRLND', 'https://github.com/opplieam/Pong-Deep-RL', 'https://github.com/jezzarax/drlnd_p1_navigation', 'https://github.com/jsztompka/DuelDQN', 'https://github.com/tensorpack/tensorpack/tree/master/examples/DeepQNetwork', 'https://github.com/facebookresearch/Horizon', 'https://github.com/facebookresearch/ReAgent', 'https://github.com/lab-ml/nn', 'https://github.com/NervanaSystems/coach', 'https://github.com/chainer/chainerrl', 'https://github.com/marload/DeepRL-TensorFlow2', 'https://github.com/philtabor/Deep-Q-Learning-Paper-To-Code', 'https://github.com/ku2482/sac-discrete.pytorch', 'https://github.com/atavakol/action-branching-agents', 'https://github.com/BY571/DQN-Atari-Agents', 'https://github.com/JuliaPOMDP/DeepQLearning.jl', 'https://github.com/R-Sweke/DeepQ-Decoding', 'https://github.com/gouxiangchen/dueling-DQN-pytorch', 'https://github.com/cocolico14/N-step-Dueling-DDQN-PER-Pacman', 'https://github.com/utarumo/RL_implementation', 'https://github.com/KDL-umass/saliency_maps', 'https://github.com/nathanin/pad', 'https://github.com/SayhoKim/tetrisRL', 'https://github.com/alessandrositta/Flatland_challenge', 'https://github.com/rybread1/deep-rl-trex', 'https://github.com/kmdanielduan/DQN_Family_PyTorch', 'https://github.com/rybread1/DeepRlTrex', 'https://github.com/OMS1996/Carla_The_RL_Self-Driving-Car', 'https://github.com/wtingda/DeepRLBreakout', 'https://github.com/prajwalgatti/DRL-Continuous-Control', 'https://github.com/mohit8935/Deep-Q-Learning-Paper', 'https://github.com/prajwalgatti/DRL-Navigation', 'https://github.com/MEOWMEOW114/nd893-p1-navigation-banana', 'https://github.com/hemilpanchiwala/Dueling-Network-Architectures', 'https://github.com/iDataist/Navigation-with-Deep-Q-Network', 'https://github.com/hemilpanchiwala/Dueling_Network_Architectures', 'https://github.com/botforge/simplementation', 'https://github.com/kshitij-ingale/Reinforcement-Learning', 'https://github.com/Adrelf/DRL-navigation', 'https://github.com/zynk13/dueling-dqn-Reinforcement-learning', 'https://github.com/1jsingh/rl_navigation', 'https://github.com/shehrum/RL_Navigation', 'https://github.com/guillaumeboniface/bananaland', 'https://github.com/ZainRaza14/deepRL', 'https://github.com/abryeemessi/Wednesday', 'https://github.com/nbopardi/smb', 'https://github.com/JBGUIMBAUD/deep-reenforcement-learning', 'https://github.com/shashwatsaxena571/DRL-navigation', 'https://github.com/Sirorezka/DeepRL_modules', 'https://github.com/fengsterooni/dql', 'https://github.com/HussonnoisMaxence/RL_Algorithms', 'https://github.com/manvibharat/Stock-price-pridiction-using-Deep-reienforcement-learning', 'https://github.com/Brandon-Rozek/DeepRL']
+
+022. What is the top benchmark score and its metric on the CINIC-10 dataset?
+['http://orkg.org/orkg/resource/R115579', 'Accuracy (%)', '94.8', 'http://orkg.org/orkg/resource/R123735', 'PARAMS', '9.1M', 'http://orkg.org/orkg/resource/R123734', 'FLOPS', '710M']
+
+023. Can you provide the highest benchmark result, including the metric and score, for the Paper Field dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1', '65.71']
+
+024. What evaluation metrics are commonly used when benchmarking models on the Atari 2600 Skiing dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+025. Where can I find code references in papers that have used the Pointer + Coverage + EntailmentGen + QuestionGen model for benchmarking purposes?
+[]
+
+026. Indicate the model that performed best in terms of Accuracy metric on the Kuzushiji-MNIST benchmark dataset?
+['http://orkg.org/orkg/resource/R126100', 'VGG8B(2x) + LocalLearning + CO']
+
+027. What is the highest benchmark result achieved on the Atari 2600 Star Gunner dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R119875', 'Score', '90804.0']
+
+028. Which model has achieved the highest F1 score score on the BUCC Chinese-to-English benchmark dataset?
+['http://orkg.org/orkg/resource/R124053', 'Massively Multilingual Sentence Embeddings']
+
+029. Indicate the model that performed best in terms of Accuracy metric on the MLDoc Zero-Shot English-to-German benchmark dataset?
+['http://orkg.org/orkg/resource/R124055', 'XLMft UDA']
+
+030. What is the top benchmark score and its metric on the Atari 2600 Ice Hockey dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', '17.3']
+
+031. What evaluation metrics are commonly used when benchmarking models on the ARC-PDN dataset?
+[]
+
+032. List the title and ID of research papers that contain a benchmark over the Penn Treebank (Word Level) dataset?
+['http://orkg.org/orkg/resource/R130786', 'Dynamic Evaluation of Neural Sequence Models', 'http://orkg.org/orkg/resource/R130803', 'Language Models with Transformers', 'http://orkg.org/orkg/resource/R130817', 'Direct Output Connection for a High-Rank Language Model', 'http://orkg.org/orkg/resource/R130839', 'Improved Language Modeling by Decoding the Past', 'http://orkg.org/orkg/resource/R130852', 'Breaking the Softmax Bottleneck: A High-Rank RNN Language Model', 'http://orkg.org/orkg/resource/R130871', 'Partially Shuffling the Training Data to Improve Language Models', 'http://orkg.org/orkg/resource/R130890', 'Regularizing and Optimizing LSTM Language Models', 'http://orkg.org/orkg/resource/R130909', 'Trellis Networks for Sequence Modeling', 'http://orkg.org/orkg/resource/R130920', 'Fraternal Dropout', 'http://orkg.org/orkg/resource/R130930', 'Deep Equilibrium Models', 'http://orkg.org/orkg/resource/R130946', 'Neural Architecture Search with Reinforcement Learning', 'http://orkg.org/orkg/resource/R130962', 'Tying Word Vectors and Word Classifiers: A Loss Framework for Language Modeling', 'http://orkg.org/orkg/resource/R130975', 'An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling', 'http://orkg.org/orkg/resource/R131002', 'R-Transformer: Recurrent Neural Network Enhanced Transformer', 'http://orkg.org/orkg/resource/R130601', 'Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context', 'http://orkg.org/orkg/resource/R129853', 'Language Models are Few-Shot Learners', 'http://orkg.org/orkg/resource/R129805', 'Improving Neural Language Modeling via Adversarial Training']
+
+033. What is the top benchmark score and its metric on the Cheetah, run (DMControl500k) dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', '518']
+
+034. Can you list the models that have been evaluated on the Atari 2600 Battle Zone dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R123322', 'SAC', 'http://orkg.org/orkg/resource/R124931', 'Reactor 500M', 'http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124905', 'Recurrent Rational DQN Average', 'http://orkg.org/orkg/resource/R124907', 'Rational DQN Average', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R123293', 'CURL', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop']
+
+035. Provide a list of research paper titles and IDs that have benchmarked models on the Penn Treebank dataset?
+['http://orkg.org/orkg/resource/R130817', 'Direct Output Connection for a High-Rank Language Model', 'http://orkg.org/orkg/resource/R129331', 'Generalizing Natural Language Analysis through Span-relation Representations']
+
+036. What are the models that have been benchmarked on the Atari 2600 Space Invaders dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R124927', 'IDVQ + DRSC + XNES', 'http://orkg.org/orkg/resource/R123322', 'SAC', 'http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124950', 'Rainbow', 'http://orkg.org/orkg/resource/R124948', 'MFEC', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124915', 'DDRL A3C', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124918', 'DQN Best', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124905', 'Recurrent Rational DQN Average', 'http://orkg.org/orkg/resource/R124907', 'Rational DQN Average', 'http://orkg.org/orkg/resource/R124906', 'DARQN soft', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R119888', 'MAC', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop']
+
+037. What is the highest benchmark result achieved on the Atari 2600 Boxing dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R119875', 'Score', '99.6']
+
+038. List the metrics that are used to evaluate models on the AG News benchmark dataset?
+['http://orkg.org/orkg/resource/R119433', 'Error']
+
+039. Provide a list of papers that have utilized the XLNet (base) model and include the links to their code?
+['https://github.com/Kabongosalomon/task-dataset-metric-nli-extraction']
+
+040. What is the top benchmark result (metric and value) over the dataset CommonsenseQA?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '76.1']
+
+041. Where can I find code references in papers that have used the DeiT-Ti model for benchmarking purposes?
+['https://github.com/tianhai123/vit-pytorch', 'https://github.com/UdbhavPrasad072300/Transformer-Implementations', 'https://github.com/TACJu/TransFG', 'https://github.com/facebookresearch/deit', 'https://github.com/lucidrains/vit-pytorch']
+
+042. Can you provide links to code used in papers that benchmark the Temporal Convolutional Network model?
+['https://github.com/sucheta19/Text-Classification-Using-CNN', 'https://github.com/zhong110020/Tensorflow-TCN', 'https://github.com/khappiya/rnn', 'https://github.com/Nic5472K/FriendsOOGroup_TCN', 'https://github.com/zll1996/TCN', 'https://github.com/anandharaju/Basic_TCN', 'https://github.com/zhong110020/TensorFlow_TCN', 'https://github.com/linxi159/TCN', 'https://github.com/patHutchings/TCN', 'https://github.com/zhong110020/keras-tcn', 'https://github.com/ZTianle/keras-tcn-solar', 'https://github.com/MChen9/TCN', 'https://github.com/ShotDownDiane/tcn-master', 'https://github.com/DevonFulcher/CryptoPricePredictor', 'https://github.com/abduallahmohamed/MCRM', 'https://github.com/jxz542189/TCN_classification', 'https://github.com/zhong110020/pytorch_TCN', 'https://github.com/XiaowanLi2018/TimeSeriesPrediction_BasedOnCNN', 'https://github.com/jakeret/tcn', 'https://github.com/ashishpatel26/tcn-keras-Examples', 'https://github.com/YuanTingHsieh/TF_TCN', 'https://github.com/Baichenjia/Tensorflow-TCN', 'https://github.com/csteinmetz1/ronn', 'https://github.com/Songweiping/TCN-TF', 'https://github.com/mhjabreel/CharCnn_Keras', 'https://github.com/IndicoDataSolutions/finetune', 'https://github.com/philipperemy/keras-tcn', 'https://github.com/locuslab/TCN']
+
+043. What is the highest benchmark result achieved on the CoQA dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R118414', 'Overall', '85']
+
+044. Where can I find code references in papers that have used the CATTS-XSUM model for benchmarking purposes?
+['https://github.com/allenai/scitldr']
+
+045. Provide a list of research paper titles and IDs that have benchmarked models on the enwik8 dataset?
+['http://orkg.org/orkg/resource/R130498', 'Dynamic Evaluation of Transformer Language Models', 'http://orkg.org/orkg/resource/R130521', 'When Attention Meets Fast Recurrence: Training Language Models with Reduced Compute', 'http://orkg.org/orkg/resource/R130545', 'Addressing Some Limitations of Transformers with Feedback Memory', 'http://orkg.org/orkg/resource/R130563', 'Improving Transformer Models by Reordering their Sublayers', 'http://orkg.org/orkg/resource/R130572', 'Compressive Transformers for Long-Range Sequence Modelling', 'http://orkg.org/orkg/resource/R130584', 'Adaptive Attention Span in Transformers', 'http://orkg.org/orkg/resource/R130601', 'Transformer-XL: Attentive Language Models Beyond a Fixed-Length Context', 'http://orkg.org/orkg/resource/R130652', 'Longformer: The Long-Document Transformer', 'http://orkg.org/orkg/resource/R130669', 'Augmenting Self-attention with Persistent Memory', 'http://orkg.org/orkg/resource/R130689', 'Character-Level Language Modeling with Deeper Self-Attention', 'http://orkg.org/orkg/resource/R130712', 'An Analysis of Neural Language Modeling at Multiple Scales', 'http://orkg.org/orkg/resource/R130733', 'Multiplicative LSTM for sequence modelling', 'http://orkg.org/orkg/resource/R130749', 'Fast-Slow Recurrent Neural Networks', 'http://orkg.org/orkg/resource/R130768', 'Hierarchical Multiscale Recurrent Neural Networks', 'http://orkg.org/orkg/resource/R130777', 'HyperNetworks', 'http://orkg.org/orkg/resource/R129926', 'Generating Long Sequences with Sparse Transformers', 'http://orkg.org/orkg/resource/R130209', 'Cluster-Former: Clustering-based Sparse Transformer for Long-Range Dependency Encoding']
+
+046. List the datasets benchmarked under the Fine-Grained Image Classification research problem?
+['http://orkg.org/orkg/resource/R123801', 'Oxford-IIIT Pets', 'http://orkg.org/orkg/resource/R119383', 'CUB-200-2011']
+
+047. Which model has achieved the highest Top 1 Accuracy score on the ImageNet V2 benchmark dataset?
+['http://orkg.org/orkg/resource/R126097', 'CAIT-M36-448']
+
+048. What evaluation metrics are commonly used when benchmarking models on the Atari 2600 Berzerk dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+049. Can you provide links to code used in papers that benchmark the Fine-Grained Gating model?
+['https://github.com/kimiyoung/fg-gating']
+
+050. Could you provide a list of models that have been tested on the Reuters-21578 benchmark dataset?
+['http://orkg.org/orkg/resource/R125942', 'KD-LSTMreg', 'http://orkg.org/orkg/resource/R125944', 'Orthogonalized Soft VSM', 'http://orkg.org/orkg/resource/R125945', 'ApproxRepSet', 'http://orkg.org/orkg/resource/R125946', 'REL-RWMD k-NN', 'http://orkg.org/orkg/resource/R122632', 'MPAD-path']
+
+051. What is the name of the top performing model in terms of F1 entity level score when benchmarked on the NCBI Disease dataset?
+[]
+
+052. What are the titles and IDs of research papers that include a benchmark for the NLP-TDMS dataset?
+[]
+
+053. Can you list the models that have been evaluated on the Atari 2600 Ms. Pacman dataset?
+['http://orkg.org/orkg/resource/R123322', 'SAC', 'http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124950', 'Rainbow', 'http://orkg.org/orkg/resource/R124948', 'MFEC', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R115591', 'VPN', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R123293', 'CURL']
+
+054. Indicate the model that performed best in terms of Macro Recall metric on the NLP-TDMS (Exp, arXiv only) benchmark dataset?
+['http://orkg.org/orkg/resource/R128075', 'TDMS-IE']
+
+055. List the metrics that are used to evaluate models on the Yelp-5 benchmark dataset?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy']
+
+056. Which model has achieved the highest Score score on the Atari 2600 Yars Revenge benchmark dataset?
+['http://orkg.org/orkg/resource/R124997', 'RUDDER']
+
+057. List the code links in papers that use the Unsupervised NMT + weight-sharing model in any benchmark?
+['https://github.com/ZhenYangIACAS/unsupervised-NMT']
+
+058. Can you provide links to code used in papers that benchmark the XLNet-Large model?
+['https://github.com/zaradana/Fast_BERT', 'https://github.com/listenviolet/XLNet', 'https://github.com/samwisegamjeee/pytorch-transformers', 'https://github.com/pauldevos/python-notes', 'https://github.com/tomgoter/nlp_finalproject', 'https://github.com/2miatran/Natural-Language-Processing', 'https://github.com/fanchenyou/transformer-study', 'https://github.com/cuhksz-nlp/SAPar', 'https://github.com/huggingface/xlnet', 'https://github.com/facebookresearch/anli', 'https://github.com/studio-ousia/luke', 'https://github.com/graykode/xlnet-Pytorch', 'https://github.com/utterworks/fast-bert', 'https://github.com/kaushaltrivedi/fast-bert', 'https://github.com/zihangdai/xlnet', 'https://github.com/huggingface/transformers']
+
+059. What is the highest benchmark result achieved on the REDDIT-B dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '80.3']
+
+060. What are the titles and IDs of research papers that include a benchmark for the arXiv dataset?
+['http://orkg.org/orkg/resource/R131759', 'PEGASUS: Pre-training with Extracted Gap-sentences for Abstractive Summarization']
+
+061. Give me a list of research papers along with their titles and IDs, that have performed benchmarks on the Dmlab-30 dataset?
+['http://orkg.org/orkg/resource/R131297', 'Multi-task Deep Reinforcement Learning with PopArt']
+
+062. What quantity of iron oxide was discovered on Elorza crater?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?quantity
+WHERE {
+  ?crater rdf:type foaf:Location.
+  ?crater rdfs:label "Elorza crater".
+  ?discovery rdf:type ex:Discovery.
+  ?discovery ex:foundOn ?crater.
+  ?discovery ex:contains ?ironOxide.
+  ?ironOxide rdf:type ex:IronOxide.
+  ?ironOxide ex:quantity ?quantity.
+}
+[]
+
+063. Can you list the metrics used to evaluate models on the Atari 2600 Zaxxon dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+064. What evaluation metrics are commonly used when benchmarking models on the TempEval-3 dataset?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+To generate a SPARQL query for the question "What evaluation metrics are commonly used when benchmarking models on the TempEval-3 dataset?", you would need to know the ontology or schema that defines the properties and relationships between the relevant entities. Without that information, it is not possible to provide an accurate SPARQL query.
+
+In the provided examples, the queries are specific to the given datasets and their corresponding ontologies. To generate a similar query for the TempEval-3 dataset, you would need to know the ontology or schema associated with that dataset and adjust the query accordingly.
+[]
+
+065. What models are being evaluated on the Atari 2600 Name This Game dataset?
+['http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124927', 'IDVQ + DRSC + XNES', 'http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124891', 'Duel noop']
+
+066. What is the top benchmark score and its metric on the WOS-46985 dataset?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '76.58']
+
+067. List the metrics that are used to evaluate models on the Atari 2600 Fishing Derby benchmark dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+068. Can you list the metrics used to evaluate models on the DocRED (Human-annotated) dataset?
+[]
+
+069. What are the titles and IDs of research papers that include a benchmark for the SciREX dataset?
+[]
+
+070. What is the highest benchmark result achieved on the NYT29 dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R114483', 'F1', '71.6']
+
+071. Can you provide the highest benchmark result, including the metric and score, for the IWSLT2015 German-English dataset?
+['http://orkg.org/orkg/resource/R117121', 'BLEU score', '35.18']
+
+072. Can you list the models that have been evaluated on the Atari 2600 Skiing dataset?
+['http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124952', 'Go-Explore', 'http://orkg.org/orkg/resource/R124905', 'Recurrent Rational DQN Average', 'http://orkg.org/orkg/resource/R124907', 'Rational DQN Average']
+
+073. Where did the study with maximal geographic scale take place?
+[]
+
+074. Which model has achieved the highest F1 score score on the Penn Treebank benchmark dataset?
+['http://orkg.org/orkg/resource/R116338', 'SpanRel']
+
+075. List the title and ID of research papers that contain a benchmark over the NYT24 dataset?
+['http://orkg.org/orkg/resource/R129390', 'Effective Modeling of Encoder-Decoder Architecture for Joint Entity and Relation Extraction', 'http://orkg.org/orkg/resource/R129399', 'A Hierarchical Framework for Relation Extraction with Reinforcement Learning']
+
+076. What is the best performing model benchmarking the PIQA dataset in terms of Accuracy metric?
+['http://orkg.org/orkg/resource/R117327', 'GPT-3 175B (Few-Shot)']
+
+077. What is the name of the top performing model in terms of Accuracy score when benchmarked on the TriviaQA dataset?
+['http://orkg.org/orkg/resource/R119646', 'S-Norm']
+
+078. What are the models that have been benchmarked on the WMT2014 English-German dataset?
+['http://orkg.org/orkg/resource/R117323', 'SMT + NMT (tuning and joint refinement)', 'http://orkg.org/orkg/resource/R117324', 'SMT as posterior regularization', 'http://orkg.org/orkg/resource/R117122', 'PBSMT + NMT', 'http://orkg.org/orkg/resource/R117123', 'Unsupervised PBSMT', 'http://orkg.org/orkg/resource/R117124', 'Unsupervised NMT + Transformer', 'http://orkg.org/orkg/resource/R117154', 'Rfa-Gate-arccos', 'http://orkg.org/orkg/resource/R117164', 'SMT + iterative backtranslation (unsupervised)', 'http://orkg.org/orkg/resource/R117221', 'CMLM+LAT+4 iterations', 'http://orkg.org/orkg/resource/R117225', 'CMLM+LAT+1 iterations', 'http://orkg.org/orkg/resource/R117228', 'NAT +FT + NPD', 'http://orkg.org/orkg/resource/R117229', 'Denoising autoencoders (non-autoregressive)', 'http://orkg.org/orkg/resource/R117264', 'Transformer Big + adversarial MLE']
+
+079. Provide a list of papers that have utilized the Tokenlearner model and include the links to their code?
+[]
+
+080. Can you provide the highest benchmark result, including the metric and score, for the Softcite dataset?
+[]
+
+081. Provide a list of papers that have utilized the Table-Sequence model and include the links to their code?
+['https://github.com/saarahasad/Relation-Extraction', 'https://github.com/LorrinWWW/two-are-better-than-one']
+
+082. Give me a list of research papers along with their titles and IDs, that have performed benchmarks on the AAPD dataset?
+['http://orkg.org/orkg/resource/R134423', 'DocBERT: BERT for Document Classification']
+
+083. What models are being evaluated on the Penn Treebank (Character Level) dataset?
+['http://orkg.org/orkg/resource/R121040', 'Bipartite Flow', 'http://orkg.org/orkg/resource/R120936', 'Past Decode Reg. + AWD-LSTM-MoS + dyn. eval.', 'http://orkg.org/orkg/resource/R120945', 'Trellis Network', 'http://orkg.org/orkg/resource/R121036', 'NASCell', 'http://orkg.org/orkg/resource/R121039', 'Temporal Convolutional Network', 'http://orkg.org/orkg/resource/R120964', 'R-Transformer', 'http://orkg.org/orkg/resource/R120876', 'Feedback Transformer', 'http://orkg.org/orkg/resource/R120921', '3-layer AWD-LSTM', 'http://orkg.org/orkg/resource/R121033', '6-layer QRNN', 'http://orkg.org/orkg/resource/R120924', 'FS-LSTM-4', 'http://orkg.org/orkg/resource/R121035', 'FS-LSTM-2', 'http://orkg.org/orkg/resource/R121037', '2-layer Norm HyperLSTM']
+
+084. Provide a list of research paper titles and IDs that have benchmarked models on the ImageNet ReaL dataset?
+['http://orkg.org/orkg/resource/R134962', 'CvT: Introducing Convolutions to Vision Transformers', 'http://orkg.org/orkg/resource/R134998', 'Training data-efficient image transformers & distillation through attention', 'http://orkg.org/orkg/resource/R134508', 'Big Transfer (BiT): General Visual Representation Learning', 'http://orkg.org/orkg/resource/R134578', 'An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale', 'http://orkg.org/orkg/resource/R134633', 'Incorporating Convolution Designs into Visual Transformers', 'http://orkg.org/orkg/resource/R134713', 'Going deeper with Image Transformers', 'http://orkg.org/orkg/resource/R134775', "LeViT: a Vision Transformer in ConvNet's Clothing for Faster Inference"]
+
+085. Provide a list of papers that have utilized the CL-Titles-Parser model and include the links to their code?
+['https://github.com/jd-coderepos/cl-titles-parser']
+
+086. What is the name of the top performing model in terms of Params score when benchmarked on the VTAB-1k dataset?
+[]
+
+087. Could you provide a list of models that have been tested on the Habitat 2020 Object Nav test-std benchmark dataset?
+['http://orkg.org/orkg/resource/R123477', 'SemExp', 'http://orkg.org/orkg/resource/R123478', 'RGBD+DD-PPO']
+
+088. What are the metrics of evaluation over the CommitmentBank dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1', 'http://orkg.org/orkg/resource/R111697', 'Accuracy']
+
+089. What is the top benchmark result (metric and value) over the dataset Oxford-IIIT Pets?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '99.91', 'http://orkg.org/orkg/resource/R115579', 'Accuracy (%)', '94.3', 'http://orkg.org/orkg/resource/R123735', 'PARAMS', '86.4M', 'http://orkg.org/orkg/resource/R123734', 'FLOPS', '744M', 'http://orkg.org/orkg/resource/R116078', 'Top-1 Error Rate', '6.2%']
+
+090. List the datasets benchmarked under the SPARQL query optimization research problem?
+[]
+
+091. Where can I find code references in papers that have used the TCN model for benchmarking purposes?
+['https://github.com/sucheta19/Text-Classification-Using-CNN', 'https://github.com/zhong110020/Tensorflow-TCN', 'https://github.com/khappiya/rnn', 'https://github.com/Nic5472K/FriendsOOGroup_TCN', 'https://github.com/zll1996/TCN', 'https://github.com/anandharaju/Basic_TCN', 'https://github.com/zhong110020/TensorFlow_TCN', 'https://github.com/linxi159/TCN', 'https://github.com/patHutchings/TCN', 'https://github.com/zhong110020/keras-tcn', 'https://github.com/ZTianle/keras-tcn-solar', 'https://github.com/MChen9/TCN', 'https://github.com/ShotDownDiane/tcn-master', 'https://github.com/DevonFulcher/CryptoPricePredictor', 'https://github.com/abduallahmohamed/MCRM', 'https://github.com/jxz542189/TCN_classification', 'https://github.com/zhong110020/pytorch_TCN', 'https://github.com/XiaowanLi2018/TimeSeriesPrediction_BasedOnCNN', 'https://github.com/jakeret/tcn', 'https://github.com/ashishpatel26/tcn-keras-Examples', 'https://github.com/YuanTingHsieh/TF_TCN', 'https://github.com/Baichenjia/Tensorflow-TCN', 'https://github.com/csteinmetz1/ronn', 'https://github.com/Songweiping/TCN-TF', 'https://github.com/mhjabreel/CharCnn_Keras', 'https://github.com/IndicoDataSolutions/finetune', 'https://github.com/philipperemy/keras-tcn', 'https://github.com/locuslab/TCN']
+
+092. Where can I find code references in papers that have used the PNDec model for benchmarking purposes?
+['https://github.com/nusnlp/PtrNetDecoding4JERE']
+
+093. Provide a list of research paper titles and IDs that have benchmarked models on the Atari 2600 Skiing dataset?
+['http://orkg.org/orkg/resource/R134171', 'Fully Parameterized Quantile Function for Distributional Reinforcement Learning', 'http://orkg.org/orkg/resource/R134264', 'First return, then explore', 'http://orkg.org/orkg/resource/R133307', 'Recurrent Rational Networks']
+
+094. What is the most common location in the studies?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?location, ?location_labels
+WHERE {
+  orkgr:RXXXXX orkgp:compareContribution ?contrib.
+  ?contrib orkgp:PXXXXX ?location.
+  ?location rdfs:label ?location_labels.
+}
+GROUP BY ?location ?location_labels
+ORDER BY DESC(COUNT(?location))
+LIMIT 1
+
+[]
+
+095. Where can I find code references in papers that have used the MPAD-path model for benchmarking purposes?
+['https://github.com/Tixierae/gow_tools', 'https://github.com/giannisnik/mpad']
+
+096. Can you provide the highest benchmark result, including the metric and score, for the Sequential MNIST dataset?
+['http://orkg.org/orkg/resource/R127017', 'Unpermuted Accuracy', '99.1%', 'http://orkg.org/orkg/resource/R127016', 'Permuted Accuracy', '97.2%']
+
+097. What models are being evaluated on the Softcite dataset?
+['http://orkg.org/orkg/resource/R226473', 'linear-chain CRFs']
+
+098. Indicate the model that performed best in terms of Precision metric on the RotoWire (Relation Generation) benchmark dataset?
+['http://orkg.org/orkg/resource/R120299', 'Hierarchical Transformer Encoder +  conditional copy']
+
+099. Can you provide links to code used in papers that benchmark the BiLSTM-Attention + ELMo model?
+['https://github.com/LamLauChiu/Tensorflow_Learning', 'https://github.com/nlp-research/bilm-tf', 'https://github.com/yangzonglin1994/bilm-tf-extended', 'https://github.com/weixsong/bilm-tf', 'https://github.com/yangrui123/Hidden', 'https://github.com/young-zonglin/bilm-tf-extended', 'https://github.com/kunde122/bilm-tf', 'https://github.com/seunghwan1228/ELMO', 'https://github.com/kafura-kafiri/tf2-elmo', 'https://github.com/shaneding/bilm-tf-experimentation', 'https://github.com/ankurbanga/Language-Models', 'https://github.com/richinkabra/CoVe-BCN', 'https://github.com/kinimod23/NMT_Project', 'https://github.com/ajovanov95/probabilistic-spiking-neural-networks', 'https://github.com/cheng18/bilm-tf', 'https://github.com/sarveshsparab/DeepElmoEmbedNer', 'https://github.com/shelleyHLX/bilm_EMLo', 'https://github.com/mingdachen/bilm-tf', 'https://github.com/menajosep/AleatoricSent', 'https://github.com/TEAMLAB-Lecture/deep_nlp_101', 'https://github.com/yuanjing-zhu/elmo', 'https://github.com/bestend/tf2-bi-lstm-crf-nni', 'https://github.com/AshwinDeshpande96/Hierarchical-Softmax', 'https://github.com/SeonbeomKim/TensorFlow-ELMo', 'https://github.com/griff4692/LMC', 'https://github.com/RundongChou/elmo-chinese-oversimplified', 'https://github.com/zenanz/ChemPatentEmbeddings', 'https://github.com/horizonheart/ELMO', 'https://github.com/kaist-dmlab/BioNER', 'https://github.com/yuanxiaosc/ELMo', 'https://github.com/JHart96/keras_elmo_embedding_layer', 'https://github.com/YC-wind/embedding_study', 'https://github.com/helboukkouri/character-bert', 'https://github.com/iliaschalkidis/ELMo-keras', 'https://github.com/PrashantRanjan09/Elmo-Tutorial', 'https://github.com/PrashantRanjan09/WordEmbeddings-Elmo-Fasttext-Word2Vec', 'https://github.com/UKPLab/elmo-bilstm-cnn-crf', 'https://github.com/HIT-SCIR/ELMoForManyLangs', 'https://github.com/Hironsan/anago', 'https://github.com/allenai/bilm-tf', 'https://github.com/dmlc/gluon-nlp', 'https://github.com/zalandoresearch/flair', 'https://github.com/flairNLP/flair']
+
+100. Give me a list of research papers along with their titles and IDs, that have performed benchmarks on the ObjectNet dataset?
+['http://orkg.org/orkg/resource/R134508', 'Big Transfer (BiT): General Visual Representation Learning']
+
+101. Can you list the metrics used to evaluate models on the BUCC Russian-to-English dataset?
+['http://orkg.org/orkg/resource/R115445', 'F1 score']
+
+102. Can you provide the highest benchmark result, including the metric and score, for the BUCC German-to-English dataset?
+['http://orkg.org/orkg/resource/R115445', 'F1 score', '96.19']
+
+103. Can you provide the highest benchmark result, including the metric and score, for the Natural Questions (long) dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1', '76.5']
+
+104. Provide a list of research paper titles and IDs that have benchmarked models on the NCBI-disease dataset?
+['http://orkg.org/orkg/resource/R129411', 'SciBERT: A Pretrained Language Model for Scientific Text']
+
+105. What is the name of the top performing model in terms of A2 score when benchmarked on the ANLI test dataset?
+[]
+
+106. Which model has achieved the highest F1 score on the SQuAD1.1 dev benchmark dataset?
+['http://orkg.org/orkg/resource/R119567', 'XLNet (single model)']
+
+107. What is the top benchmark score and its metric on the Automatically labeled Medline abstracts corpus dataset?
+[]
+
+108. Indicate the model that performed best in terms of F1 metric on the BC5CDR-disease benchmark dataset?
+['http://orkg.org/orkg/resource/R116679', 'PubMedBERT uncased']
+
+109. What is the best performing model benchmarking the ACE 2004 dataset in terms of RE+ Micro F1 metric?
+['http://orkg.org/orkg/resource/R116645', 'Ours: cross-sentence ALB']
+
+110. Can you provide links to code used in papers that benchmark the ResNet-152 (SAM) model?
+['https://github.com/Janus-Shiau/SAM-tf2', 'https://github.com/Jannoshh/simple-sam', 'https://github.com/sayakpaul/Sharpness-Aware-Minimization-TensorFlow', 'https://github.com/moskomule/sam.pytorch', 'https://github.com/google-research/sam', 'https://github.com/davda54/sam']
+
+111. Can you list the models that have been evaluated on the Multimodal PISA dataset?
+['http://orkg.org/orkg/resource/R118533', 'Video', 'http://orkg.org/orkg/resource/R122331', 'Audio', 'http://orkg.org/orkg/resource/R129308', 'MMDL']
+
+112. Can you list the models that have been evaluated on the enwiki8 dataset?
+['http://orkg.org/orkg/resource/R121030', 'PAR Transformer 24B']
+
+113. Provide a list of papers that have utilized the DQN-PixelCNN model and include the links to their code?
+[]
+
+114. Name the datasets that have been used for benchmarking in the Image Classification research problem?
+['http://orkg.org/orkg/resource/R126667', 'ObjectNet (Bounding Box)', 'http://orkg.org/orkg/resource/R126694', 'SVHN', 'http://orkg.org/orkg/resource/R126717', 'Flowers-102', 'http://orkg.org/orkg/resource/R126722', 'iNaturalist 2018', 'http://orkg.org/orkg/resource/R126744', 'ObjectNet', 'http://orkg.org/orkg/resource/R126832', 'Birdsnap', 'http://orkg.org/orkg/resource/R126855', 'STL-10, 1000 Labels', 'http://orkg.org/orkg/resource/R126031', 'VTAB-1k', 'http://orkg.org/orkg/resource/R126080', 'iNaturalist 2019', 'http://orkg.org/orkg/resource/R126096', 'ImageNet V2', 'http://orkg.org/orkg/resource/R126098', 'Kuzushiji-MNIST', 'http://orkg.org/orkg/resource/R126249', 'ImageNet ReaL', 'http://orkg.org/orkg/resource/R123732', 'FGVC Aircraft', 'http://orkg.org/orkg/resource/R123801', 'Oxford-IIIT Pets', 'http://orkg.org/orkg/resource/R123808', 'Food-101', 'http://orkg.org/orkg/resource/R121347', 'ImageNet', 'http://orkg.org/orkg/resource/R119383', 'CUB-200-2011', 'http://orkg.org/orkg/resource/R117572', 'Stanford Dogs', 'http://orkg.org/orkg/resource/R117682', 'Stanford Cars', 'http://orkg.org/orkg/resource/R117710', 'Fashion-MNIST', 'http://orkg.org/orkg/resource/R117736', 'STL-10', 'http://orkg.org/orkg/resource/R117830', 'Oxford 102 Flowers', 'http://orkg.org/orkg/resource/R116789', 'CIFAR-10', 'http://orkg.org/orkg/resource/R116792', 'CIFAR-100', 'http://orkg.org/orkg/resource/R114182', 'MNIST']
+
+115. Could you provide a list of models that have been tested on the Atari 2600 River Raid benchmark dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124948', 'MFEC', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124891', 'Duel noop']
+
+116. Provide a list of papers that have utilized the CvT-21 (384 res) model and include the links to their code?
+['https://github.com/rishikksh20/convolution-vision-transformers', 'https://github.com/lucidrains/vit-pytorch']
+
+117. Give me a list of research papers along with their titles and IDs, that have performed benchmarks on the BIOSSES dataset?
+['http://orkg.org/orkg/resource/R131730', 'BioSentVec: creating sentence embeddings for biomedical texts', 'http://orkg.org/orkg/resource/R129632', 'Transfer Learning in Biomedical Natural Language Processing: An Evaluation of BERT and ELMo on Ten Benchmarking Datasets']
+
+118. Who has contributed to the largest number of articles about coronavirus?
+[]
+
+119. List the metrics that are used to evaluate models on the Oxford-IIIT Pets benchmark dataset?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', 'http://orkg.org/orkg/resource/R116078', 'Top-1 Error Rate', 'http://orkg.org/orkg/resource/R123735', 'PARAMS', 'http://orkg.org/orkg/resource/R123734', 'FLOPS', 'http://orkg.org/orkg/resource/R115579', 'Accuracy (%)']
+
+120. Can you list the models that have been evaluated on the Atari 2600 Boxing dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R124931', 'Reactor 500M', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124915', 'DDRL A3C', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R123293', 'CURL', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop']
+
+121. Which model has achieved the highest Accuracy score on the Yelp-5 benchmark dataset?
+['http://orkg.org/orkg/resource/R119139', 'XLNet']
+
+122. Can you provide the highest benchmark result, including the metric and score, for the WMT2014 French-English dataset?
+['http://orkg.org/orkg/resource/R116443', 'BLEU', '39.2', 'http://orkg.org/orkg/resource/R117121', 'BLEU score', '25.87']
+
+123. Can you list the models that have been evaluated on the ClueWeb09-B dataset?
+['http://orkg.org/orkg/resource/R119139', 'XLNet']
+
+124. Where can I find code references in papers that have used the Concept Mention Extraction model for benchmarking purposes?
+[]
+
+125. List the metrics that are used to evaluate models on the Cheetah, run (DMControl500k) benchmark dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+126. What are the titles and IDs of research papers that include a benchmark for the ShARe/CLEF eHealth corpus dataset?
+['http://orkg.org/orkg/resource/R129632', 'Transfer Learning in Biomedical Natural Language Processing: An Evaluation of BERT and ELMo on Ten Benchmarking Datasets']
+
+127. What is the top benchmark score and its metric on the Atari 2600 Breakout dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', '9.5']
+
+128. Where can I find code references in papers that have used the EfficientNetV2-L model for benchmarking purposes?
+['https://github.com/jahongir7174/EffcientNetV2', 'https://github.com/google/automl/tree/master/efficientnetv2', 'https://github.com/lukemelas/EfficientNet-PyTorch', 'https://github.com/rwightman/pytorch-image-models']
+
+129. Provide a list of papers that have utilized the A3C FF hs model and include the links to their code?
+[]
+
+130. Can you provide the highest benchmark result, including the metric and score, for the ACE 2005 dataset?
+['http://orkg.org/orkg/resource/R116637', 'Sentence Encoder', 'biLSTM', 'http://orkg.org/orkg/resource/R116617', 'NER Micro F1', '89.5', 'http://orkg.org/orkg/resource/R116646', 'Relation F1', '67.8', 'http://orkg.org/orkg/resource/R116628', 'RE Micro F1', '67.6', 'http://orkg.org/orkg/resource/R116619', 'RE+ Micro F1', '64.3']
+
+131. List the code links in papers that use the H-NLI model in any benchmark?
+['https://github.com/Ishani-Mondal/SciKG']
+
+132. Can you provide links to code used in papers that benchmark the BERTwwm + SQuAD 2 model?
+[]
+
+133. What is the top benchmark score and its metric on the Natural Questions (short) dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1', '57.2']
+
+134. What are the metrics of evaluation over the Atari 2600 Frostbite dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', 'http://orkg.org/orkg/resource/R124949', 'Best Score']
+
+135. Can you list the models that have been evaluated on the MultiNLI dataset?
+['http://orkg.org/orkg/resource/R119567', 'XLNet (single model)']
+
+136. What is the best performing model benchmarking the X-Sum dataset in terms of ROUGE-2 metric?
+['http://orkg.org/orkg/resource/R124731', 'PtGen']
+
+137. Provide a list of research paper titles and IDs that have benchmarked models on the Kinetics-600 dataset?
+['http://orkg.org/orkg/resource/R129958', 'Self-Supervised MultiModal Versatile Networks']
+
+138. What evaluation metrics are commonly used when benchmarking models on the WMT2014 French-English dataset?
+['http://orkg.org/orkg/resource/R116443', 'BLEU', 'http://orkg.org/orkg/resource/R117121', 'BLEU score']
+
+139. What is the name of the top performing model in terms of F1 score when benchmarked on the NYT-single dataset?
+[]
+
+140. What is the highest benchmark result achieved on the Yelp-14 dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '69.4']
+
+141. What is the top benchmark result (metric and value) over the dataset AESLC?
+['http://orkg.org/orkg/resource/R120314', 'ROUGE-1', '37.68', 'http://orkg.org/orkg/resource/R116360', 'ROUGE-L', '36.51', 'http://orkg.org/orkg/resource/R124684', 'ROUGE-2', '21.25']
+
+142. What is the best performing model benchmarking the Atari 2600 Centipede dataset in terms of Score metric?
+['http://orkg.org/orkg/resource/R124890', 'C51 noop']
+
+143. List the code links in papers that use the Long Short Transformer model in any benchmark?
+[]
+
+144. Can you provide links to code used in papers that benchmark the T-ConvS2S model?
+['https://github.com/EdinburghNLP/XSum', 'https://github.com/shashiongithub/XSum']
+
+145. What is the best performing model benchmarking the AESLC dataset in terms of ROUGE-1 metric?
+['http://orkg.org/orkg/resource/R124688', 'PEGASUS']
+
+146. List the code links in papers that use the Dynamic Coattention Networks (single model) model in any benchmark?
+['https://github.com/andreiilie1/dynamic_coattention_networks', 'https://github.com/wasimusu/MachineRC', 'https://github.com/Lou1sM/AdvancedML-Project-Dynamic-Coattention-Networks', 'https://github.com/Lou1sM/AML-Project', 'https://github.com/lmn-extracts/dcn_plus', 'https://github.com/BAJUKA/SQuAD-NLP']
+
+147. What is the top benchmark score and its metric on the Atari 2600 Tennis dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', '5.1']
+
+148. What is the name of the top performing model in terms of NLL score when benchmarked on the Nottingham dataset?
+['http://orkg.org/orkg/resource/R120964', 'R-Transformer']
+
+149. What is the top benchmark result (metric and value) over the dataset ACE 2004?
+['http://orkg.org/orkg/resource/R114483', 'F1', '90.3', 'http://orkg.org/orkg/resource/R116617', 'NER Micro F1', '88.6', 'http://orkg.org/orkg/resource/R116628', 'RE Micro F1', '63.3', 'http://orkg.org/orkg/resource/R116619', 'RE+ Micro F1', '59.6']
+
+150. Can you provide links to code used in papers that benchmark the CAIT-XS-36 model?
+['https://github.com/facebookresearch/deit', 'https://github.com/lucidrains/vit-pytorch']
+
+151. What is the best performing model benchmarking the ImageNet 64x64 dataset in terms of Bits per dim metric?
+['http://orkg.org/orkg/resource/R117688', 'Sparse Transformer 152M (strided)']
+
+152. What is the highest benchmark result achieved on the Walker, walk (DMControl500k) dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R119875', 'Score', '902']
+
+153. Where can I find code references in papers that have used the SemExp model for benchmarking purposes?
+['https://github.com/devendrachaplot/Object-Goal-Navigation']
+
+154. What is the highest benchmark result achieved on the WOS-5736 dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '90.93']
+
+155. Could you provide a list of models that have been tested on the NYT29 benchmark dataset?
+['http://orkg.org/orkg/resource/R116605', 'WDec', 'http://orkg.org/orkg/resource/R116606', 'PNDec', 'http://orkg.org/orkg/resource/R116607', 'HRLRE']
+
+156. Provide a list of papers that have utilized the Funnel Transformer model and include the links to their code?
+[]
+
+157. Indicate the model that performed best in terms of Score metric on the Atari 2600 Tennis benchmark dataset?
+['http://orkg.org/orkg/resource/R124891', 'Duel noop']
+
+158. What is the top benchmark score and its metric on the Stanford Dogs dataset?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', '90%']
+
+159. What are the most commonly used benchmark datasets for the Entity Disambiguation research field?
+['http://orkg.org/orkg/resource/R164005', 'SoMeSci']
+
+160. Name the datasets that have been used for benchmarking in the Robot Navigation research problem?
+['http://orkg.org/orkg/resource/R123467', 'Habitat 2020 Point Nav test-std', 'http://orkg.org/orkg/resource/R123476', 'Habitat 2020 Object Nav test-std']
+
+161. Which are 3 the most common variables for the atmosphere models?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?variable ?variable_label 
+WHERE {
+  ?model myontology:P40 ?variable.
+  ?variable rdfs:label ?variable_label.
+}
+GROUP BY ?variable ?variable_label
+ORDER BY DESC(COUNT(?variable))
+LIMIT 3
+
+[]
+
+162. What is the top benchmark result (metric and value) over the dataset BC2GM?
+['http://orkg.org/orkg/resource/R122892', 'F1 entity level', '87.81']
+
+163. What are the models that have been benchmarked on the Atari 2600 Road Runner dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R123322', 'SAC', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124926', 'Rainbow+SEER', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R123293', 'CURL', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop']
+
+164. Where can I find code references in papers that have used the AxCell model for benchmarking purposes?
+['https://github.com/paperswithcode/axcell']
+
+165. List the code links in papers that use the linear-chain CRFs model in any benchmark?
+['https://github.com/howisonlab/softcite-dataset']
+
+166. Can you list the models that have been evaluated on the PROTEINS dataset?
+['http://orkg.org/orkg/resource/R125945', 'ApproxRepSet']
+
+167. What evaluation metrics are commonly used when benchmarking models on the Atari 2600 Bowling dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score']
+
+168. What evaluation metrics are commonly used when benchmarking models on the UCF101 (finetuned) dataset?
+['http://orkg.org/orkg/resource/R118614', '3-fold Accuracy']
+
+169. Can you list the models that have been evaluated on the Atari 2600 Assault dataset?
+[]
+
+170. What are the most commonly used benchmark datasets for the Natural Language Inference research field?
+['http://orkg.org/orkg/resource/R123000', 'ShARe/CLEF eHealth corpus', 'http://orkg.org/orkg/resource/R120747', 'ANLI test', 'http://orkg.org/orkg/resource/R120774', 'MedNLI', 'http://orkg.org/orkg/resource/R120776', 'SNLI', 'http://orkg.org/orkg/resource/R121068', 'MedSTS', 'http://orkg.org/orkg/resource/R121069', 'BIOSSES']
+
+171. Could you provide a list of models that have been tested on the BUCC Russian-to-English benchmark dataset?
+['http://orkg.org/orkg/resource/R124053', 'Massively Multilingual Sentence Embeddings']
+
+172. Indicate the model that performed best in terms of F1 metric on the PubMed 20k RCT benchmark dataset?
+['http://orkg.org/orkg/resource/R116685', 'SciBERT (Base Vocab)']
+
+173. List the metrics that are used to evaluate models on the Atari 2600 HERO benchmark dataset?
+['http://orkg.org/orkg/resource/R119875', 'Score', 'http://orkg.org/orkg/resource/R124949', 'Best Score']
+
+174. What models are being evaluated on the seel.cse.lsu.edu/data/re17.zip  dataset?
+[]
+
+175. Where can I find code references in papers that have used the PEGASUS model for benchmarking purposes?
+['https://github.com/ibrahim-elsawy/test', 'https://github.com/vdavid033/Pegasus-Google-', 'https://github.com/rsin46/pegasus-demo', 'https://github.com/amiyamandal-dev/pegasus', 'https://github.com/ManuMahadevaswamy/PEGASUS', 'https://github.com/jiacheng-xu/text-sum-uncertainty', 'https://github.com/google-research/pegasus', 'https://github.com/huggingface/transformers']
+
+176. What are the models that have been benchmarked on the BoolQ dataset?
+['http://orkg.org/orkg/resource/R117327', 'GPT-3 175B (Few-Shot)']
+
+177. What evaluation metrics are commonly used when benchmarking models on the SQuAD2.0 dataset?
+['http://orkg.org/orkg/resource/R114483', 'F1', 'http://orkg.org/orkg/resource/R119439', 'EM']
+
+178. Could you provide a list of models that have been tested on the SciCite benchmark dataset?
+['http://orkg.org/orkg/resource/R125989', 'SciBERT', 'http://orkg.org/orkg/resource/R226835', 'BiLSTM-Attn w/ ELMo + section title and citation worthiness scaffolds']
+
+179. Indicate the model that performed best in terms of PARAMS metric on the FGVC Aircraft benchmark dataset?
+['http://orkg.org/orkg/resource/R126666', 'ImageNet + iNat on WS-DAN']
+
+180. Could you provide a list of models that have been tested on the HMDB51 benchmark dataset?
+['http://orkg.org/orkg/resource/R118777', 'MMV TSM-50x2', 'http://orkg.org/orkg/resource/R118769', 'XDC', 'http://orkg.org/orkg/resource/R118780', 'AVID+CMA (Modified R2+1D-18 on Audioset)', 'http://orkg.org/orkg/resource/R118782', 'AVID (Modified R2+1D-18 on Audioset)', 'http://orkg.org/orkg/resource/R118783', 'AVID+CMA (Modified R2+1D-18 on Kinetics)', 'http://orkg.org/orkg/resource/R118784', 'AVID (Modified R2+1D-18 on Kinetics)']
+
+181. List the title and ID of research papers that contain a benchmark over the Ohsumed dataset?
+['http://orkg.org/orkg/resource/R134434', 'Text classification with word embedding regularization and soft similarity measure', 'http://orkg.org/orkg/resource/R134448', 'Rep the Set: Neural Networks for Learning Set Representations', 'http://orkg.org/orkg/resource/R134476', "Speeding up Word Mover's Distance and its variants via properties of distances between embeddings"]
+
+182. Provide a list of papers that have utilized the Shake-Shake (SAM) model and include the links to their code?
+['http://orkg.org/orkg/resource/R134959', 'https://github.com/Janus-Shiau/SAM-tf2', 'http://orkg.org/orkg/resource/R134959', 'https://github.com/Jannoshh/simple-sam', 'http://orkg.org/orkg/resource/R134959', 'https://github.com/sayakpaul/Sharpness-Aware-Minimization-TensorFlow', 'http://orkg.org/orkg/resource/R134959', 'https://github.com/moskomule/sam.pytorch', 'http://orkg.org/orkg/resource/R134959', 'https://github.com/google-research/sam', 'http://orkg.org/orkg/resource/R134959', 'https://github.com/davda54/sam']
+
+183. What are the metrics of evaluation over the Fashion-MNIST dataset?
+['http://orkg.org/orkg/resource/R111697', 'Accuracy', 'http://orkg.org/orkg/resource/R116138', 'Percentage error']
+
+184. List the code links in papers that use the GPT-2 (small) model in any benchmark?
+[]
+
+185. Provide a list of papers that have utilized the MMV TSM-50x2 model and include the links to their code?
+[]
+
+186. What types of nanocarriers do have therapeutic effect?
+[]
+
+187. What are the models that have been benchmarked on the DuIE dataset?
+['http://orkg.org/orkg/resource/R116610', 'BiTT']
+
+188. What are the titles and IDs of research papers that include a benchmark for the Atari 2600 Asterix dataset?
+['http://orkg.org/orkg/resource/R133938', 'Contribution \tES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R134085', 'Contribution \tSAC', 'http://orkg.org/orkg/resource/R134127', 'Contribution \tReactor 500M', 'http://orkg.org/orkg/resource/R134172', 'Contribution \tFQF', 'http://orkg.org/orkg/resource/R133504', 'Contribution \tA3C FF hs', 'http://orkg.org/orkg/resource/R133605', 'Contribution \tA3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R133706', 'Contribution \tA3C LSTM hs', 'http://orkg.org/orkg/resource/R133822', 'Contribution \tPOP3D', 'http://orkg.org/orkg/resource/R132906', 'Contribution \tPrior+Duel hs', 'http://orkg.org/orkg/resource/R133008', 'Contribution \tDDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R133108', 'Contribution \tGorila', 'http://orkg.org/orkg/resource/R133339', 'Contribution \tRational DQN Average', 'http://orkg.org/orkg/resource/R133208', 'Contribution \tBootstrapped DQN', 'http://orkg.org/orkg/resource/R133308', 'Contribution \tRecurrent Rational DQN Average', 'http://orkg.org/orkg/resource/R133404', 'Contribution \tA2C + SIL', 'http://orkg.org/orkg/resource/R132401', 'Contribution \tPrior noop', 'http://orkg.org/orkg/resource/R132500', 'Contribution \tPrior hs', 'http://orkg.org/orkg/resource/R132605', 'Contribution \tDDQN (tuned) hs', 'http://orkg.org/orkg/resource/R132706', 'Contribution \tDQN noop', 'http://orkg.org/orkg/resource/R132805', 'Contribution \tDQN hs', 'http://orkg.org/orkg/resource/R131981', 'Contribution \tDuel noop', 'http://orkg.org/orkg/resource/R132082', 'Contribution \tDuel hs', 'http://orkg.org/orkg/resource/R132183', 'Contribution \tDDQN (tuned) noop', 'http://orkg.org/orkg/resource/R132282', 'Contribution \tPrior+Duel noop', 'http://orkg.org/orkg/resource/R132386', 'Contribution \tPrior+Duel hs', 'http://orkg.org/orkg/resource/R131878', 'Contribution \tC51 noop', 'http://orkg.org/orkg/resource/R131171', 'Contribution \tCURL']
+
+189. What are the titles and IDs of research papers that include a benchmark for the Atari 2600 Bank Heist dataset?
+['http://orkg.org/orkg/resource/R133937', 'Evolution Strategies as a Scalable Alternative to Reinforcement Learning', 'http://orkg.org/orkg/resource/R134029', 'Smaller World Models for Reinforcement Learning', 'http://orkg.org/orkg/resource/R134126', 'The Reactor: A fast and sample-efficient Actor-Critic agent for Reinforcement Learning', 'http://orkg.org/orkg/resource/R133503', 'Asynchronous Methods for Deep Reinforcement Learning', 'http://orkg.org/orkg/resource/R133821', 'Policy Optimization With Penalized Point Probability Distance: An Alternative To Proximal Policy Optimization', 'http://orkg.org/orkg/resource/R132604', 'Deep Reinforcement Learning with Double Q-learning', 'http://orkg.org/orkg/resource/R133007', 'Learning values across many orders of magnitude', 'http://orkg.org/orkg/resource/R133107', 'Massively Parallel Methods for Deep Reinforcement Learning', 'http://orkg.org/orkg/resource/R133207', 'Deep Exploration via Bootstrapped DQN', 'http://orkg.org/orkg/resource/R133403', 'Self-Imitation Learning', 'http://orkg.org/orkg/resource/R132399', 'Prioritized Experience Replay', 'http://orkg.org/orkg/resource/R131980', 'Dueling Network Architectures for Deep Reinforcement Learning', 'http://orkg.org/orkg/resource/R131877', 'A Distributional Perspective on Reinforcement Learning', 'http://orkg.org/orkg/resource/R131170', 'CURL: Contrastive Unsupervised Representations for Reinforcement Learning', 'http://orkg.org/orkg/resource/R134043', 'Improving Computational Efficiency in Visual Reinforcement Learning via Stored Embeddings']
+
+190. What evaluation metrics are commonly used when benchmarking models on the MultiRC dataset?
+['http://orkg.org/orkg/resource/R119493', 'F1a']
+
+191. Could you provide a list of models that have been tested on the seel.cse.lsu.edu/data/refsq17.zip benchmark dataset?
+[]
+
+192. Provide a list of research paper titles and IDs that have benchmarked models on the UCF101 (finetuned) dataset?
+['http://orkg.org/orkg/resource/R129958', 'Self-Supervised MultiModal Versatile Networks', 'http://orkg.org/orkg/resource/R129977', 'Self-Supervised Learning by Cross-Modal Audio-Video Clustering', 'http://orkg.org/orkg/resource/R130082', 'Audio-Visual Instance Discrimination with Cross-Modal Agreement', 'http://orkg.org/orkg/resource/R130118', 'Cooperative Learning of Audio and Video Models from Self-Supervised Synchronization']
+
+193. Which model has achieved the highest Score score on the Reacher, easy (DMControl500k) benchmark dataset?
+['http://orkg.org/orkg/resource/R123293', 'CURL']
+
+194. List the code links in papers that use the OTF spelling+lemma (single) model in any benchmark?
+[]
+
+195. What is the top benchmark score and its metric on the MAZEA dataset?
+[]
+
+196. Could you provide a list of models that have been tested on the IMDb-M benchmark dataset?
+['http://orkg.org/orkg/resource/R125945', 'ApproxRepSet']
+
+197. What models are being evaluated on the Atari 2600 Chopper Command dataset?
+['http://orkg.org/orkg/resource/R124920', 'ES FF (1 hour) noop', 'http://orkg.org/orkg/resource/R124931', 'Reactor 500M', 'http://orkg.org/orkg/resource/R124932', 'FQF', 'http://orkg.org/orkg/resource/R124912', 'A2C + SIL', 'http://orkg.org/orkg/resource/R124913', 'A3C FF hs', 'http://orkg.org/orkg/resource/R124914', 'A3C FF (1 day) hs', 'http://orkg.org/orkg/resource/R124921', 'A3C LSTM hs', 'http://orkg.org/orkg/resource/R124916', 'POP3D', 'http://orkg.org/orkg/resource/R124919', 'Prior+Duel hs', 'http://orkg.org/orkg/resource/R124900', 'DDQN+Pop-Art noop', 'http://orkg.org/orkg/resource/R124901', 'Gorila', 'http://orkg.org/orkg/resource/R124902', 'Bootstrapped DQN', 'http://orkg.org/orkg/resource/R124894', 'Prior noop', 'http://orkg.org/orkg/resource/R124895', 'Prior hs', 'http://orkg.org/orkg/resource/R124898', 'DDQN (tuned) hs', 'http://orkg.org/orkg/resource/R124908', 'DQN noop', 'http://orkg.org/orkg/resource/R124911', 'DQN hs', 'http://orkg.org/orkg/resource/R124891', 'Duel noop', 'http://orkg.org/orkg/resource/R124892', 'Duel hs', 'http://orkg.org/orkg/resource/R124897', 'DDQN (tuned) noop', 'http://orkg.org/orkg/resource/R124922', 'Prior+Duel noop', 'http://orkg.org/orkg/resource/R124890', 'C51 noop', 'http://orkg.org/orkg/resource/R123293', 'CURL']
+
+198. Indicate the model that performed best in terms of F1 metric on the ShARe/CLEF eHealth corpus benchmark dataset?
+['http://orkg.org/orkg/resource/R120775', 'NCBI_BERT(base) (P+M)']
+
+199. What is the highest benchmark result achieved on the Amazon-2 dataset, including the metric and its value?
+['http://orkg.org/orkg/resource/R119433', 'Error', '2.11']

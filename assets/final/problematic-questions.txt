@@ -1,0 +1,65 @@
+062. What quantity of iron oxide was discovered on Elorza crater?
+Unknown namespace prefix : foaf
+
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?quantity
+WHERE {
+  ?crater rdf:type foaf:Location.
+  ?crater rdfs:label "Elorza crater".
+  ?discovery rdf:type ex:Discovery.
+  ?discovery ex:foundOn ?crater.
+  ?discovery ex:contains ?ironOxide.
+  ?ironOxide rdf:type ex:IronOxide.
+  ?ironOxide ex:quantity ?quantity.
+}
+
+064. What evaluation metrics are commonly used when benchmarking models on the TempEval-3 dataset?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+To generate a SPARQL query for the question "What evaluation metrics are commonly used when benchmarking models on the TempEval-3 dataset?", you would need to know the ontology or schema that defines the properties and relationships between the relevant entities. Without that information, it is not possible to provide an accurate SPARQL query.
+
+In the provided examples, the queries are specific to the given datasets and their corresponding ontologies. To generate a similar query for the TempEval-3 dataset, you would need to know the ontology or schema associated with that dataset and adjust the query accordingly.
+
+094. What is the most common location in the studies?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?location, ?location_labels
+WHERE {
+  orkgr:RXXXXX orkgp:compareContribution ?contrib.
+  ?contrib orkgp:PXXXXX ?location.
+  ?location rdfs:label ?location_labels.
+}
+GROUP BY ?location ?location_labels
+ORDER BY DESC(COUNT(?location))
+LIMIT 1
+
+161. Which are 3 the most common variables for the atmosphere models?
+Cannot execute query!!!
+
+prefix orkgp: <http://orkg.org/orkg/predicate/>
+prefix orkgc: <http://orkg.org/orkg/class/>
+prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+
+SELECT ?variable ?variable_label 
+WHERE {
+  ?model myontology:P40 ?variable.
+  ?variable rdfs:label ?variable_label.
+}
+GROUP BY ?variable ?variable_label
+ORDER BY DESC(COUNT(?variable))
+LIMIT 3
