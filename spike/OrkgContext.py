@@ -122,9 +122,10 @@ class OrkgContext:
         else:
             try:
                 response = self.graph.query(query)
-            except ParseException:
+            except Exception:
                 print('Cannot execute query!!!')
                 print(query)
+
                 return []
 
             return [

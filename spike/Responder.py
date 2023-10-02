@@ -74,6 +74,8 @@ class Responder:
 
         results = context.get_triples(query)
 
+        print(results)
+
         if answer_cache is None:
             answer_cache = {question: results}
             self.answer_cache = answer_cache

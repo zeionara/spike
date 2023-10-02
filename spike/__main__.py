@@ -80,7 +80,11 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
         answers = []
 
         for i, entry in enumerate(content):
-            question = entry["question"]["string"]
+            try:
+                question = entry["question"]["string"]
+            except Exception:
+                # print(e)
+                question = entry['question']
 
             print(f'{i:03d}. {question}')
 
@@ -97,15 +101,16 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
                 'answer': answer
             })
 
-            if drop_spaces(query) == drop_spaces(entry['query']['sparql']):
-                n_matched_queries += 1
-            else:
-                print(f'{MARK} Queries differ')
-                print(f'{MARK} Generated:')
-                print(query)
-                print(f'{MARK} Reference:')
-                print(entry['query']['sparql'])
-                print(MARK)
+            if entry.get('query') is not None:
+                if drop_spaces(query) == drop_spaces(entry['query']['sparql']):
+                    n_matched_queries += 1
+                else:
+                    print(f'{MARK} Queries differ')
+                    print(f'{MARK} Generated:')
+                    print(query)
+                    print(f'{MARK} Reference:')
+                    print(entry['query']['sparql'])
+                    print(MARK)
 
             # if len(answer) > 0:
             #     print(answer)
