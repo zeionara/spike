@@ -8,6 +8,7 @@ from rdflib import Graph
 from halo import Halo
 from transformers import AutoTokenizer, FalconModel
 from torch import mean
+from tqdm import tqdm
 
 from llama_index import GPTVectorStoreIndex, download_loader, StorageContext, load_index_from_storage, QueryBundle
 
@@ -19,6 +20,7 @@ from .SciQA import SciQA
 from .Responder import Responder
 from .util import drop_spaces
 from .RDFReader import RDFReader
+from .QueryEngine import QueryEngine
 
 
 NEW_LINE = '\n'
@@ -329,6 +331,39 @@ def normalize_labels(input_path: str, output_path: str):
 
                 # print(line)
                 output_file.write(LABEL_LINE.sub(r'>\g<1><http://www.w3.org/2000/01/rdf-schema#label>\g<2>', line) + '\n')
+
+
+@main.command()
+@argument('input-path', type = str)
+@option('--output-path', '-o', type = str, default = 'assets/subgraph/answers.json')
+def query(input_path: str, output_path: str):
+    engine = QueryEngine()
+
+    answers = []
+
+    with open(input_path, mode = 'r', encoding = 'utf-8') as file:
+        lines = [line for line in file.read().split('\n') if line]
+
+    for line in tqdm(lines, desc = 'Running queries'):
+        entry = eval(line)
+
+        input_query = entry['llm_generated_query']
+        query = '\n'.join((
+            'prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>',
+            'prefix orkgc: <http://orkg.org/orkg/class/>',
+            'prefix orkgp: <http://orkg.org/orkg/predicate/>',
+            'prefix orkgr: <http://orkg.org/orkg/resource/>',
+            '\n',
+            input_query
+        ))
+        # query = f'\n\n\n{input_query}'  # add missing prefices
+
+        results = engine.run(query, id_ := entry['id'])
+
+        answers.append({'id': id_, 'answer': results})
+
+    with open(output_path, 'w', encoding = 'utf-8') as file:
+        dump(answers, file, indent = 4)
 
 
 if __name__ == '__main__':
