@@ -348,6 +348,12 @@ def query(input_path: str, output_path: str):
         entry = eval(line)
 
         input_query = entry['llm_generated_query']
+
+        parts = input_query.split('SELECT', maxsplit = 1)
+
+        if len(parts) > 1:
+            input_query = f'SELECT{parts[1]}'
+
         query = '\n'.join((
             'prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>',
             'prefix orkgc: <http://orkg.org/orkg/class/>',
