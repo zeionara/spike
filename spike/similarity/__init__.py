@@ -15,7 +15,7 @@ def rank(lhs: str, rhs: [str], top_n: int = None, get_utterance: callable = lamb
     unsorted_entries = []
 
     for item in rhs:
-        if score := compare(lhs, get_utterance(item)) >= threshold:
+        if (score := compare(lhs, get_utterance(item))) >= threshold:
             unsorted_entries.append((score, item))
 
     entries = sorted(
@@ -27,4 +27,5 @@ def rank(lhs: str, rhs: [str], top_n: int = None, get_utterance: callable = lamb
     if top_n is None:
         return [item[1] for item in entries]
     else:
+        print([item[0] for item in entries[:top_n]])
         return [item[1] for item in entries[:top_n]]

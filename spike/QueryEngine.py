@@ -5,7 +5,7 @@ TIMEOUT = 3600  # seconds
 
 
 class QueryEngine:
-    root = 'https://orkg.org/SciQA'
+    root = 'https://orkg.org/triplestore'
 
     def __init__(self):
         pass
@@ -29,10 +29,10 @@ class QueryEngine:
                 cell['value']
                 for row in data['results']['bindings']
                 for _, cell in row.items()
-            ]
+            ], True
         except Exception as e:
             print(f'Cannot execute query "{id_}"')
             print(query)
             print(e)
 
-            return []
+            return [], False

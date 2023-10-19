@@ -82,6 +82,11 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
         answers = []
 
         for i, entry in enumerate(content):
+
+            # if entry['id'] not in ['AQ1806', 'AQ1807']:
+            if i != 94:
+                continue
+
             try:
                 question = entry["question"]["string"]
             except Exception:
@@ -90,6 +95,8 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
 
             print(f'{i:03d}. {question}')
 
+            # dd
+
             # if i in (26, 53):  # these queries take a lot of time to process
             #     answers.append({
             #         'id': entry['id'],
@@ -97,6 +104,8 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
             #     })
             # else:
             query, answer = responder.ask(question)
+
+            continue
 
             answers.append({
                 'id': entry['id'],
@@ -121,8 +130,8 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
 
         print('question precision: ', n_matched_queries / n_queries)
 
-    with open(answers_path, 'w', encoding = 'utf-8') as file:
-        dump(answers, file, indent = 4)
+    # with open(answers_path, 'w', encoding = 'utf-8') as file:
+    #     dump(answers, file, indent = 4)
 
     # cache = None
 
@@ -344,15 +353,18 @@ def query(input_path: str, output_path: str):
     with open(input_path, mode = 'r', encoding = 'utf-8') as file:
         lines = [line for line in file.read().split('\n') if line]
 
+    n_total = 0
+    n_success = 0
+
     for line in tqdm(lines, desc = 'Running queries'):
         entry = eval(line)
 
         input_query = entry['llm_generated_query']
 
-        parts = input_query.split('SELECT', maxsplit = 1)
+        # parts = input_query.split('SELECT', maxsplit = 1)
 
-        if len(parts) > 1:
-            input_query = f'SELECT{parts[1]}'
+        # if len(parts) > 1:
+        #     input_query = f'SELECT{parts[1]}'
 
         query = '\n'.join((
             'prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>',
@@ -364,12 +376,21 @@ def query(input_path: str, output_path: str):
         ))
         # query = f'\n\n\n{input_query}'  # add missing prefices
 
-        results = engine.run(query, id_ := entry['id'])
+        # query = input_query
+
+        results, success = engine.run(query, id_ := entry['id'])
 
         answers.append({'id': id_, 'answer': results})
 
-    with open(output_path, 'w', encoding = 'utf-8') as file:
-        dump(answers, file, indent = 4)
+        n_total += 1
+
+        if success:
+            n_success += 1
+
+    # with open(output_path, 'w', encoding = 'utf-8') as file:
+    #     dump(answers, file, indent = 4)
+
+    print(n_total, n_success, n_success / n_total)
 
 
 if __name__ == '__main__':

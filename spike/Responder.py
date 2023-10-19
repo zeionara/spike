@@ -91,6 +91,10 @@ class Responder:
 
         context = OrkgContext(fresh = fresh, graph = self.graph)
 
+        examples, _ = context.cut(question)
+
+        return None, None
+
         if query_cache is not None and not dry_run:
             answer = query_cache.get(question)
 

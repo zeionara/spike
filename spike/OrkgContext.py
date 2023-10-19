@@ -83,6 +83,8 @@ class OrkgContext:
     def cut(self, phrase: str, matches: callable = lambda entry, phrase: entry.label.lower() in phrase.lower()):
         examples = rank(phrase, self.sciqa.train.entries, top_n = 3, get_utterance = lambda entry: entry.utterance)
 
+        print(examples)
+
         return examples, '\n'.join([
             '' if entry is None else entry.description
             for entry in self.context
