@@ -62,6 +62,14 @@ def ask(question: str, dry_run: bool, fresh: bool, cache_path: str, questions_pa
             with open(graph_cache, 'wb') as file:
                 dumpp(graph, file)
 
+    # result = graph.query('select (count(*) as ?triples) { ?s ?p ?o }')
+    # result = graph.query('select (count(*) as ?triples) { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://orkg.org/orkg/resource/Contribution> }')
+    result = graph.query('select (count(*) as ?triples) { ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://orkg.org/orkg/class/Contribution> }')
+
+    print([cell for row in result for cell in row])
+
+    return
+
     # Run queries, send them to the parsed graph, get answers and write them to an external file
 
     responder = Responder(cache_path, answer_cache_path, graph = graph)
